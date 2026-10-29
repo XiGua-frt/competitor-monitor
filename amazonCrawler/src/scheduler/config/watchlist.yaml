@@ -1,0 +1,7 @@
+# 竞品监控清单（watchlist）
+# Agent 可通过 MCP add_watchlist/remove_watchlist 工具增删；此处是种子/人工维护入口。
+# variant_asin 可选：绑定到特定子变体，保证价格口径一致（对比可比性）。
+watchlist:
+  - asin: B0DLQ8MVF7
+    note: "样例: 宠物照片定制T恤 (fixture 同款)"
+    variant_asin: null

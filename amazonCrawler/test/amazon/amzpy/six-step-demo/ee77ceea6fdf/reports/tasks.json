@@ -1,0 +1,172 @@
+[
+  {
+    "id": "2e1309c805004be9ab0673e23a3d5ced",
+    "kind": "detail",
+    "entity": "B0GWVTMR4Q",
+    "profile": "ae81bb40124994cceb936c7e",
+    "payload": {
+      "_search_result_position": 2,
+      "asin": "B0GWVTMR4Q",
+      "img_url": "https://m.media-amazon.com/images/I/71FlRvKPwBL._AC_UL960_FMwebp_QL65_.jpg",
+      "prime": false,
+      "rating": 5.0,
+      "title": "Custom Embroidered Dog Mom T-Shirt Portrait Outline Photo",
+      "url": "https://www.amazon.com/dp/B0GWVTMR4Q"
+    },
+    "state": "done",
+    "due_at": 1792916381.694956,
+    "created_at": 1792916381.694956,
+    "attempts": 1,
+    "owner": null,
+    "lease_until": null,
+    "reason": null
+  },
+  {
+    "id": "5c747774c38a4597b7107b37ccd93457",
+    "kind": "detail",
+    "entity": "B0H22J6F1B",
+    "profile": "ae81bb40124994cceb936c7e",
+    "payload": {
+      "_search_result_position": 3,
+      "asin": "B0H22J6F1B",
+      "img_url": "https://m.media-amazon.com/images/I/711nSQfzk3L._AC_UL960_FMwebp_QL65_.jpg",
+      "prime": false,
+      "rating": 5.0,
+      "title": "Custom T Shirts Men Women Personalized Photo Text Logo Design Your Own Tee",
+      "url": "https://www.amazon.com/dp/B0H22J6F1B"
+    },
+    "state": "done",
+    "due_at": 1792916381.694956,
+    "created_at": 1792916381.694956,
+    "attempts": 1,
+    "owner": null,
+    "lease_until": null,
+    "reason": null
+  },
+  {
+    "id": "607dbf879d1b44169c71b7c21a3589ea",
+    "kind": "detail",
+    "entity": "B0DLQ8MVF7",
+    "profile": "ae81bb40124994cceb936c7e",
+    "payload": {
+      "_search_result_position": 1,
+      "asin": "B0DLQ8MVF7",
+      "badge": "Overall Pick",
+      "brand": "Amazon's Choice: Overall Pick",
+      "currency": "JPY",
+      "delivery_info": "JPY 2,350 delivery Fri, Oct 9",
+      "img_url": "https://m.media-amazon.com/images/I/7136ICWVliL._AC_UL960_FMwebp_QL65_.jpg",
+      "price": 2370.0,
+      "prime": false,
+      "rating": 4.6,
+      "title": "Custom Best Friend Dog, Cat, or Pet Photo T-Shirt for Men, Women and Kids - Customize with Your Pet's Name and Photo",
+      "url": "https://www.amazon.com/dp/B0DLQ8MVF7"
+    },
+    "state": "done",
+    "due_at": 1792916381.694956,
+    "created_at": 1792916381.694956,
+    "attempts": 1,
+    "owner": null,
+    "lease_until": null,
+    "reason": null
+  },
+  {
+    "id": "f388c78ec161458fa8b47b4318a56295",
+    "kind": "search",
+    "entity": "custom pet portrait shirt",
+    "profile": "ae81bb40124994cceb936c7e",
+    "payload": {
+      "keyword": "custom pet portrait shirt"
+    },
+    "state": "done",
+    "due_at": 1792916381.694956,
+    "created_at": 1792916381.694956,
+    "attempts": 1,
+    "owner": null,
+    "lease_until": null,
+    "reason": null
+  },
+  {
+    "id": "4c84052c3cc94865933bb570ba0a0947",
+    "kind": "search",
+    "entity": "custom pet portrait shirt",
+    "profile": "ae81bb40124994cceb936c7e",
+    "payload": {
+      "keyword": "custom pet portrait shirt"
+    },
+    "state": "done",
+    "due_at": 1793002827.694956,
+    "created_at": 1793002827.694956,
+    "attempts": 1,
+    "owner": null,
+    "lease_until": null,
+    "reason": null
+  },
+  {
+    "id": "60084a5035094222932fddbf4b6bc036",
+    "kind": "detail",
+    "entity": "B0H22J6F1B",
+    "profile": "ae81bb40124994cceb936c7e",
+    "payload": {
+      "asin": "B0H22J6F1B",
+      "title": "Custom T Shirts Men Women Personalized Photo Text Logo Design Your Own Tee"
+    },
+    "state": "done",
+    "due_at": 1793002827.694956,
+    "created_at": 1793002827.694956,
+    "attempts": 1,
+    "owner": null,
+    "lease_until": null,
+    "reason": null
+  },
+  {
+    "id": "653e254afc2d4159b79fc31f1d5f3af5",
+    "kind": "detail",
+    "entity": "B0DLQ8MVF7",
+    "profile": "ae81bb40124994cceb936c7e",
+    "payload": {
+      "asin": "B0DLQ8MVF7",
+      "title": "Custom Best Friend Dog, Cat, or Pet Photo T-Shirt for Men, Women and Kids - Customize with Your Pet's Name and Photo"
+    },
+    "state": "done",
+    "due_at": 1793002827.694956,
+    "created_at": 1793002827.694956,
+    "attempts": 1,
+    "owner": null,
+    "lease_until": null,
+    "reason": null
+  },
+  {
+    "id": "90335372c64d46838840d2e0e1e91c77",
+    "kind": "detail",
+    "entity": "B0GWVTMR4Q",
+    "profile": "ae81bb40124994cceb936c7e",
+    "payload": {
+      "asin": "B0GWVTMR4Q",
+      "title": "Custom Embroidered Dog Mom T-Shirt Portrait Outline Photo"
+    },
+    "state": "done",
+    "due_at": 1793002827.694956,
+    "created_at": 1793002827.694956,
+    "attempts": 1,
+    "owner": null,
+    "lease_until": null,
+    "reason": null
+  },
+  {
+    "id": "81558655bdb540d590c87ec7ad882605",
+    "kind": "search",
+    "entity": "custom pet portrait shirt",
+    "profile": "ae81bb40124994cceb936c7e",
+    "payload": {
+      "keyword": "custom pet portrait shirt"
+    },
+    "state": "pending",
+    "due_at": 1793006487.694956,
+    "created_at": 1793002872.694956,
+    "attempts": 1,
+    "owner": null,
+    "lease_until": null,
+    "reason": "rate_limited"
+  }
+]

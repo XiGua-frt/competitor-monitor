@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>#fashion - TikTok</title>
+  <!--
+    Fixture: NO embedded JSON node at all — exercises the CSS fallback
+    path in HashtagParser.parse_hashtag and get_top_video_ids.
+    Selectors are ASSUMED (verified: false); logic validation only.
+    Contains a duplicate video link to verify de-duplication.
+  -->
+</head>
+<body>
+  <div data-e2e="challenge-item">
+    <h1 data-e2e="challenge-title">#fashion</h1>
+    <strong data-e2e="challenge-views-count">120.5M</strong>
+  </div>
+  <div data-e2e="challenge-item">
+    <a href="https://www.tiktok.com/@user1/video/7301234500000000001"></a>
+    <a href="/@user2/video/7301234500000000002?is_from_webapp=1"></a>
+    <a href="https://www.tiktok.com/@user1/video/7301234500000000001"></a>
+    <a href="https://www.tiktok.com/@user3/photo/7301234500000000009"></a>
+  </div>
+</body>
+</html>

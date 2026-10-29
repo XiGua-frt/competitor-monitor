@@ -1,0 +1,111 @@
+{
+  "_meta": {
+    "warning": "选择器纪律（2026-10-07 升级）：verified:true 的条目必须携带 docs/probe/ 证据引用（note 中注明证据文件名），守卫用例见 tests/test_hashtag_scraper.py。verified:false 的条目仍是假设，待实机校准。逆向依据见 docs/reverse/hashtag-api.md（E-1~E-8）。",
+    "how_to_verify": "1) 打开 https://www.tiktok.com/tag/{tag} 保存完整 HTML；2) 检查 <script id=\"__UNIVERSAL_DATA_FOR_REHYDRATION__\"> 或 <script id=\"SIGI_STATE\"> 中是否存在 webapp.challenge-detail / challengeInfo 路径；3) 确认后把 verified 改为 true 并在 note 注明 docs/probe/ 证据。",
+    "supported_types": ["json_path", "css", "url_template", "regex"],
+    "json_path_syntax": "点号分隔，数组索引用 [n]，如 challengeInfo.challenge.stats.viewCount",
+    "version": "0.2.0-signed-api-probe",
+    "last_updated": "2026-10-07",
+    "owner": "Agent G / Agent P",
+    "probe_note": "2026-10-07 Agent O 实机探针（游客 curl_cffi chrome131 + 代理）：游客 SSR /tag/{tag} 为空壳，challenge 数据全部走客户端签名 API。2026-10-07 Agent P 签名 API 探针（TikTokSigner X-Bogus + 游客 Cookie，预算 6/10 次）：api/challenge/detail 证实可用（statusCode=0 + 全量数据），api/challenge/item_list 与 api/post/item_list 为 200 空体（深层风控门控，见 docs/probe/probe-signed-api-findings-2026-10-07.md）"
+  },
+  "urls": {
+    "tag_page": {
+      "type": "url_template",
+      "value": "https://www.tiktok.com/tag/{tag_name}",
+      "verified": false,
+      "note": "【探针 2026-10-07】URL 模板返回 200 但游客态 SSR 为空壳（title 正常、无任何话题数据），数据靠客户端签名 API 加载；模板地址本身正确。证据 docs/probe/20261007T144849Z_tag_webdev_try1_body.html"
+    },
+    "api_challenge_detail": {
+      "type": "url_template",
+      "value": "https://www.tiktok.com/api/challenge/detail/?challengeName={tag_name}",
+      "verified": true,
+      "note": "【Agent P 证实 2026-10-07】TikTokSigner X-Bogus 签名 + 游客 Cookie（dummy msToken query+Cookie 一致）请求 /api/challenge/detail/?challengeName=webdev&...（需附带 aid=1988/device_platform=web_pc 等基参，见 scripts/probe_signed_api.py BASE_PARAMS）：200 + statusCode=0 + challengeInfo 完整数据（challenge.id=17603590, statsV2.viewCount=739512730）。X-Bogus 以 query 附加方式被服务端接受。证据 docs/probe/20261007T154904Z_api_challenge_detail_body.json + _meta.json"
+    },
+    "api_challenge_item_list": {
+      "type": "url_template",
+      "value": "https://www.tiktok.com/api/challenge/item_list/?challengeID={challenge_id}&count={count}",
+      "verified": false,
+      "note": "【Agent P 部分证实 2026-10-07】端点路由存在（X-Bogus 签名下 200 非 404，challengeID=17603590 来自 detail 响应），但无论 dummy 还是真实游客 msToken（Set-Cookie 下发）+ ttwid 完整 Cookie 罐，均返回 200 空体——业务层被更深风控门控（疑似缺 X-Gnarly 头或 web_id/verifyFp 设备参数）。下轮逆向输入见 docs/probe/probe-signed-api-findings-2026-10-07.md。证据 docs/probe/20261007T155114Z_api_challenge_item_list_body.json、20261007T155426Z_api_challenge_item_list_body.json。【Agent R 消融 2026-10-08】真实 Chrome 浏览器游客态被动捕获：页面自身 item_list XHR 已带 X-Gnarly（实为 query 参数而非请求头）、X-Bogus、device_id（web_id）、服务端 msToken、ttwid 全量 Cookie 罐、clientABVersions 共 36 参数，仍 200 空体；curl_cffi chrome131 原样重放亦空体——门控在会话层（游客/风险分），不在请求形状，verified 保持 false。证据 docs/probe/20261008T025405Z_api_challenge_item_list?challengeID=17603590&cursor=0&count=30_body.txt、同前缀 _meta.json、20261008T025405Z_replay_api_challenge_item_list_body.txt；分析见 docs/reverse/hashtag-api.md §9"
+    }
+  },
+  "embedded_json": {
+    "universal_data_script_id": {
+      "type": "css",
+      "value": "script#__UNIVERSAL_DATA_FOR_REHYDRATION__",
+      "verified": false,
+      "note": "【探针已证实节点存在 2026-10-07】真实话题页含该节点且 JSON 可完整解析，但 payload 仅 5 个 scope 键、不含 challenge 数据；证据 docs/probe/20261007T144849Z_tag_webdev_try1_embedded___UNIVERSAL_DATA_FOR_REHYDRATION__.json"
+    },
+    "sigi_state_script_id": {
+      "type": "css",
+      "value": "script#SIGI_STATE",
+      "verified": false,
+      "note": "【探针 2026-10-07】真实话题页无 SIGI_STATE 节点"
+    },
+    "root_candidates": {
+      "type": "json_path",
+      "value": [
+        "__DEFAULT_SCOPE__['webapp.challenge-detail']",
+        "__DEFAULT_SCOPE__['webapp.challenge']",
+        "challengeInfo",
+        "challenge"
+      ],
+      "verified": false,
+      "note": "【探针证伪 2026-10-07】游客态 SSR 话题页全文无 webapp.challenge-detail / challengeInfo / challenge 键（0 次命中）——本通道不可用，数据在客户端经签名 API 加载"
+    }
+  },
+  "fields": {
+    "tag_name": {
+      "type": "json_path",
+      "value": "challengeInfo.challenge.title",
+      "css_fallback": "h1[data-e2e='challenge-title']",
+      "verified": true,
+      "note": "【Agent P 证实+修正 2026-10-07】原假设 challengeInfo.challenge.challengeName 不存在；真实 API 响应中话题名字段为 challengeInfo.challenge.title（值 'webdev'）。证据 docs/probe/20261007T154904Z_api_challenge_detail_body.json"
+    },
+    "views_total": {
+      "type": "json_path",
+      "value": "challengeInfo.challenge.stats.viewCount",
+      "css_fallback": "strong[data-e2e='challenge-views-count']",
+      "verified": true,
+      "note": "【Agent P 证实 2026-10-07】challengeInfo.challenge.stats.viewCount=739500000（int，取整到百万）；同响应 challengeInfo.statsV2.viewCount=\"739512730\"（字符串，更精确）与 challengeInfo.stats.viewCount（顶层副本）均存在。解析器 parse_view_count 对字符串/int 均兼容。证据 docs/probe/20261007T154904Z_api_challenge_detail_body.json"
+    },
+    "challenge_id": {
+      "type": "json_path",
+      "value": "challengeInfo.challenge.id",
+      "verified": true,
+      "note": "【Agent P 证实 2026-10-07】challengeInfo.challenge.id=\"17603590\"（字符串），可用于 item_list 分页。证据 docs/probe/20261007T154904Z_api_challenge_detail_body.json"
+    }
+  },
+  "top_videos": {
+    "video_list_json_path": {
+      "type": "json_path",
+      "value": [
+        "challengeInfo.itemList",
+        "itemList",
+        "challengeInfo.itemModule",
+        "itemModule"
+      ],
+      "verified": false,
+      "note": "【探针证伪 2026-10-07】游客态 SSR 页面无任何 itemList/itemModule 数据（全文 0 次命中）"
+    },
+    "video_id_json_field": {
+      "type": "json_path",
+      "value": "video.id",
+      "verified": false,
+      "note": "假设视频对象内 id 字段（itemStruct.id 变体在解析器中作备选）"
+    },
+    "video_link": {
+      "type": "css",
+      "value": "a[href*='/video/']",
+      "attribute": "href",
+      "verified": false,
+      "note": "【探针 2026-10-07】游客态空壳页无 a[href*='/video/'] 锚点（0 命中），CSS 回退不可用"
+    },
+    "video_id_regex": {
+      "type": "regex",
+      "value": "/video/(\\d{10,})",
+      "verified": false,
+      "note": "【探针 2026-10-07】无锚点可匹配，正则本身未验证（纯假设）"
+    }
+  }
+}

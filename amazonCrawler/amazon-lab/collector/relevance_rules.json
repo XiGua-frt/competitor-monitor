@@ -1,0 +1,10 @@
+{
+  "version": "pet-apparel-v1",
+  "target": "human-worn custom pet portrait apparel",
+  "apparel": ["\\b(?:t[ -]?shirts?|tees?|tshirts?|sweatshirts?|hoodies?|sweaters?|bodysuits?|onesies?|shirts?)\\b"],
+  "customization": ["\\bcustom(?:ized|ize|ization|izable)?\\b", "\\bpersonali[sz](?:ed|e|ation|able)\\b", "\\bupload(?:ing)?\\b", "\\bdesign your own\\b", "\\badd your (?:own |pet.s )?(?:photo|image|picture)\\b"],
+  "pet_portrait": ["\\b(?:pet|dog|cat)(?:.s)?\\b[^.!?\\n]{0,100}\\b(?:photos?|portraits?|pictures?|images?|faces?|sketch(?:es)?)\\b", "\\b(?:photos?|portraits?|pictures?|images?|sketch(?:es)?)\\b[^.!?\\n]{0,100}\\b(?:pet|dog|cat)(?:.s)?\\b"],
+  "pet_wear": ["\\b(?:shirts?|hoodies?|clothes|clothing|apparel|outfits?)\\b[^,.;\\n]{0,65}\\bfor (?:small |medium |large |pet |puppy |your )*(?:dogs?|cats?|puppies)\\b(?!\\s+(?:lovers?|moms?|dads?|owners?|parents?))", "\\b(?:dogs?|cats?|pets?) (?:clothes|clothing|apparel|outfits?)\\b"],
+  "non_apparel": ["\\b(?:mugs?|cups?|canvas|posters?|wall art|keychains?|patch(?:es)?|iron[ -]on|blankets?|tote bags?)\\b"],
+  "customization_unavailable": ["\\b(?:not|cannot be|can.t be) customi[sz](?:able|ed)\\b", "\\bno (?:photo uploads?|customization|customisation)\\b"]
+}

@@ -1,0 +1,119 @@
+{
+  "loaderData": {
+    "(product_name_slug$)/(product_id)/page": {
+      "page_config": {
+        "components_map": [
+          {
+            "component_type": "page_header"
+          },
+          {
+            "component_type": "user_info"
+          },
+          {
+            "component_type": "product_info",
+            "component_data": {
+              "product_info": {
+                "product_id": "1729480426738058662",
+                "title": "2 SET UPGRADED VERSION HIGH PRESSURE NOZZLE High Pressure  Bumblebee Fountain Pen Portable outdoor Water Gun Sprayer Brass Nozzle for Garden Hose Cuci Kereta",
+                "price": {
+                  "real_price": "RM19.90",
+                  "original_price": "RM69.90",
+                  "min_sku_price": "19.90",
+                  "min_sku_original_price": "69.90"
+                },
+                "review": {
+                  "product_rating": 4.7,
+                  "review_count": "419"
+                },
+                "seller": {
+                  "seller_id": "7494754844264401318",
+                  "name": "Autozo Carpro"
+                },
+                "sold_count": "1584",
+                "sold_count_note": {
+                  "text": "The number of items sold globally since this item was listed on TikTok Shop excluding items that have been returned."
+                },
+                "images": [
+                  {
+                    "url_list": [
+                      "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/010b5fafb0304910817a3fbe80f8bd5d~tplv-aphluv4xwc-resize-webp:800:800.webp?dr=15582&t=555f072d&ps=933b5bde&shp=c940a200&shcp=9b759fb9&idc=my&from=3376456192"
+                    ]
+                  },
+                  {
+                    "url_list": [
+                      "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/278ae49c550d45d88e7e8fef46aec070~tplv-aphluv4xwc-resize-webp:800:800.webp?dr=15582&t=555f072d&ps=933b5bde&shp=c940a200&shcp=9b759fb9&idc=my&from=3376456192"
+                    ]
+                  },
+                  {
+                    "url_list": [
+                      "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/1edf69089e844d12ada3df2c6b9916b8~tplv-aphluv4xwc-resize-webp:800:800.webp?dr=15582&t=555f072d&ps=933b5bde&shp=c940a200&shcp=9b759fb9&idc=my&from=3376456192"
+                    ]
+                  },
+                  {
+                    "url_list": [
+                      "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/a38c0c4065204b899193c3890fa82027~tplv-aphluv4xwc-resize-webp:800:800.webp?dr=15582&t=555f072d&ps=933b5bde&shp=c940a200&shcp=9b759fb9&idc=my&from=3376456192"
+                    ]
+                  },
+                  {
+                    "url_list": [
+                      "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/df0cc0b56094430eb4e1123c23da844b~tplv-aphluv4xwc-resize-webp:800:800.webp?dr=15582&t=555f072d&ps=933b5bde&shp=c940a200&shcp=9b759fb9&idc=my&from=3376456192"
+                    ]
+                  },
+                  {
+                    "url_list": [
+                      "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/a01475fdbadb4787845d2db20876fadb~tplv-aphluv4xwc-resize-webp:800:800.webp?dr=15582&t=555f072d&ps=933b5bde&shp=c940a200&shcp=9b759fb9&idc=my&from=3376456192"
+                    ]
+                  },
+                  {
+                    "url_list": [
+                      "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/c0193974c41a4b27bcbad40a459c9f0c~tplv-aphluv4xwc-resize-webp:800:800.webp?dr=15582&t=555f072d&ps=933b5bde&shp=c940a200&shcp=9b759fb9&idc=my&from=3376456192"
+                    ]
+                  },
+                  {
+                    "url_list": [
+                      "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/a8d2ed51cc164b6f9d8ae9976f356aa9~tplv-aphluv4xwc-resize-webp:800:800.webp?dr=15582&t=555f072d&ps=933b5bde&shp=c940a200&shcp=9b759fb9&idc=my&from=3376456192"
+                    ]
+                  }
+                ],
+                "skus": [
+                  {
+                    "stock": 0,
+                    "unavailable_info": {
+                      "text": "This item is out of stock"
+                    }
+                  }
+                ],
+                "unavailable_info": {
+                  "text": "This item is out of stock"
+                }
+              },
+              "category_info": {
+                "recommended_categories": [
+                  {
+                    "category_id": "605196",
+                    "category_name": "Automotive & Motorcycle"
+                  },
+                  {
+                    "category_id": "940808",
+                    "category_name": "Car Washing & Maintenance"
+                  },
+                  {
+                    "category_id": "945160",
+                    "category_name": "Water Guns & Snow Foam Lances"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "component_type": "category_info",
+            "component_data": null
+          },
+          {
+            "component_type": "feed_list"
+          }
+        ]
+      }
+    }
+  }
+}

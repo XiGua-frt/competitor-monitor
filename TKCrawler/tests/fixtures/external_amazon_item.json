@@ -1,0 +1,22 @@
+{
+  "ItemsResult": {
+    "Items": [
+      {
+        "ASIN": "B08N5WRWNW",
+        "DetailPageURL": "https://www.amazon.com/dp/B08N5WRWNW",
+        "BrowseNodeInfo": {
+          "BrowseNodes": [
+            {
+              "DisplayName": "Electronics",
+              "SalesRank": 142
+            },
+            {
+              "DisplayName": "Home & Kitchen",
+              "SalesRank": 8520
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

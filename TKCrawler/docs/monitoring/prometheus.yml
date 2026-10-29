@@ -1,0 +1,30 @@
+# Prometheus 配置 - TKCrawler
+# 由 docker-compose.yml 挂载为 /etc/prometheus/prometheus.yml
+# （挂载路径 ./docs/monitoring/prometheus.yml，本文件必须位于该位置）
+
+global:
+  scrape_interval: 15s      # 抓取间隔
+  evaluation_interval: 15s  # 告警规则评估间隔
+
+# 告警规则文件
+# 注意：需在 docker-compose.yml 的 prometheus 服务中追加挂载：
+#   - ./docs/monitoring/alerting_rules.yml:/etc/prometheus/alerting_rules.yml
+# 否则 Prometheus 启动时会因找不到该文件而报错（待主控协调，本 Agent 无权改 compose）。
+rule_files:
+  - /etc/prometheus/alerting_rules.yml
+
+scrape_configs:
+  # Prometheus 自身
+  - job_name: prometheus
+    static_configs:
+      - targets: ['localhost:9090']
+
+  # 爬虫主服务 metrics 端点
+  # 端口约定为 9091，可用环境变量 CRAWLER_METRICS_PORT 覆盖
+  # （metrics.py 的 start_metrics_server() 读取该环境变量）。
+  # 说明：Prometheus 配置文件本身不支持环境变量插值；
+  #   1) 默认走 docker 网络内主机名 crawler:9091（与 compose 服务名一致，无需暴露宿主机端口）；
+  #   2) 若修改了 CRAWLER_METRICS_PORT，需同步修改此 target（或由主控改用 envsubst 方案）。
+  - job_name: crawler
+    static_configs:
+      - targets: ['crawler:9091']

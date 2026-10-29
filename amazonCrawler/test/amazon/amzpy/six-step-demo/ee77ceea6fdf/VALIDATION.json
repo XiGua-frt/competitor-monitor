@@ -1,0 +1,18 @@
+{
+  "mode": "simulation_only",
+  "actual_network_requests": 0,
+  "initial_run": {
+    "requests_simulated": 4,
+    "snapshots": 3
+  },
+  "cached_second_tick": {
+    "status": "idle",
+    "requests": 0
+  },
+  "refresh_snapshots_added": 3,
+  "historical_snapshots": 6,
+  "http_429_status": "cooldown",
+  "restart_and_resume_status": "cooldown",
+  "report": "/Users/wuwenbo/Documents/competitor-monitor/amazon-collector-20261010-184257/test/amazon/amzpy/six-step-demo/ee77ceea6fdf/reports/REPORT.md",
+  "database": "/Users/wuwenbo/Documents/competitor-monitor/amazon-collector-20261010-184257/test/amazon/amzpy/six-step-demo/ee77ceea6fdf/demo.sqlite3"
+}

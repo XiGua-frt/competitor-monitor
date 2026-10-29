@@ -1,0 +1,56 @@
+# 调度任务配置模板
+# interval 支持: 2d / 12h / 30m / 45s 或纯数字（秒）
+# priority: 数字越小优先级越高（P1 先于 P2）
+# retry.backoff: exponential（1m -> 2m -> 4m）或 fixed
+tasks:
+  - name: scrape_shop_products
+    type: periodic
+    interval: 2d          # 2天一次快照
+    priority: 1           # 飙升品快照优先重抓
+    retry:
+      max_attempts: 3
+      backoff: exponential
+      base_delay: 60      # 首次重试 60s，之后 120s、240s
+
+  - name: scrape_videos
+    type: periodic
+    interval: 1d
+    priority: 2
+    retry:
+      max_attempts: 3
+      backoff: exponential
+      base_delay: 60
+
+  - name: scrape_hashtag_snapshots
+    type: periodic
+    interval: 86400        # 每日一次 hashtag views 快照 (1d)
+    priority: 3
+    payload:
+      tags: "tiktokmademebuyit,webdev"   # 逗号分隔标签, handler 缺省同此
+    retry:
+      max_attempts: 3
+      backoff: exponential
+      base_delay: 60
+
+  - name: scrape_itemlist_snapshots
+    type: periodic
+    interval: 1d           # 每日一次达人视频列表快照
+    priority: 2
+    payload:
+      sec_uid: "MS4wLjABAAAAwAg0rSzO65WQfz4RzQgGv2Xdv108BgPXhRrrmNVIHQZ9PO8-flwwRtEppYTS0OjA"
+      handle: "khaby.lame"
+    retry:
+      max_attempts: 3
+      backoff: exponential
+      base_delay: 60
+
+  - name: scrape_watchlist
+    type: periodic
+    interval: 1d           # 每日一次种子商品快照 (激增系数数据源)
+    priority: 1            # 与飙升品快照同优先级: 选品信号的生命线
+    payload:
+      watchlist: null      # 缺省用 src/scheduler/config/watchlist.yaml
+    retry:
+      max_attempts: 3
+      backoff: exponential
+      base_delay: 60

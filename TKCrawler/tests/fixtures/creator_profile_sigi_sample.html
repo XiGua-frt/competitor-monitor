@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>@oldstyle_creator - TikTok</title>
+  <!--
+    Fixture for the SIGI_STATE fallback path (legacy embedded JSON node).
+    Assumed structure: UserModule.users maps uniqueId -> user object
+    (profile keys direct, no "user." wrapper); ItemModule is a video dict.
+    All paths unverified — see creator_selectors.json.
+  -->
+  <script id="SIGI_STATE" type="application/json">
+  {
+    "UserModule": {
+      "users": {
+        "oldstyle_creator": {
+          "id": "456777888999000",
+          "uniqueId": "oldstyle_creator",
+          "nickname": "OldStyle Creator",
+          "signature": " gadgets and gear #gadgettok ",
+          "stats": { "followerCount": "185.4K" }
+        }
+      }
+    },
+    "ItemModule": {
+      "7401": { "id": "7401", "desc": "review #gadgettok", "stats": { "playCount": 100 } },
+      "7402": { "id": "7402", "desc": "test #gear", "stats": { "playCount": 300 } },
+      "7403": { "id": "7403", "desc": "demo", "stats": { "playCount": 200 } },
+      "7404": { "id": "7404", "desc": "final thoughts", "stats": { "playCount": 400 } }
+    }
+  }
+  </script>
+</head>
+<body>
+  <div data-e2e="user-info">
+    <h1 data-e2e="user-title">OldStyle Creator</h1>
+    <a data-e2e="user-link" href="/@oldstyle_creator">@oldstyle_creator</a>
+  </div>
+</body>
+</html>

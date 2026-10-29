@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "keyword": "custom pet portrait shirt",
+  "database": "data/collector.sqlite3",
+  "run_dir": "data/runs",
+  "evidence_dir": "data/evidence",
+  "report_dir": "data/reports",
+  "search_interval_seconds": 86400,
+  "refresh_seconds": 86400,
+  "poll_seconds": 10,
+  "max_requests_per_run": 4,
+  "max_details_per_run": 3,
+  "max_tasks_per_run": 4,
+  "max_requests_per_hour": 8,
+  "max_requests_per_day": 12,
+  "min_interval_seconds": 15,
+  "cooldown_seconds": 3600,
+  "max_consecutive_errors": 3,
+  "max_attempts": 2,
+  "retry_base_seconds": 60,
+  "request_timeout_seconds": 25
+}

@@ -1,0 +1,30 @@
+{
+  "result": {
+    "list": [
+      {
+        "subject": "LED Strip Lights RGB 5050 Waterproof 5m Roll",
+        "priceInfo": {
+          "price": 3.20
+        },
+        "minOrderQuantity": 50,
+        "leadTime": 7,
+        "supplier": {
+          "companyName": "Shenzhen Bright Lighting Co., Ltd."
+        },
+        "offerUrl": "https://detail.1688.com/offer/123456789.html"
+      },
+      {
+        "subject": "LED Strip Lights Smart WiFi APP Control",
+        "priceInfo": {
+          "price": 5.80
+        },
+        "minOrderQuantity": 10,
+        "leadTime": 5,
+        "supplier": {
+          "companyName": "Guangzhou Smart Home Tech Co., Ltd."
+        },
+        "offerUrl": "https://detail.1688.com/offer/987654321.html"
+      }
+    ]
+  }
+}

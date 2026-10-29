@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Category Ranking - TikTok Shop</title>
+  <!--
+    Fixture built to match the ASSUMED category ranking structure
+    (selectors.json category_page.product_link CSS + product_id_regex).
+    Validates scraper logic only; real page structure is unverified.
+  -->
+</head>
+<body>
+  <div class="product-list">
+    <a data-e2e="product-card" href="/shop/product/7301234567890123456">Product A</a>
+    <a data-e2e="product-card" href="/shop/product/7301234567890123457">Product B</a>
+    <a data-e2e="product-card" href="/shop/product/7301234567890123458">Product C</a>
+    <!-- duplicate should be de-duplicated -->
+    <a data-e2e="product-card" href="/shop/product/7301234567890123456">Product A dup</a>
+    <!-- non-product link should be ignored by the CSS path -->
+    <a href="/shop/category/blenders">Blenders category</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,147 @@
+{
+  "_meta": {
+    "warning": "本文件选择器/JSON路径初值为假设，实机探针证实的条目已翻转 verified: true 并附 docs/probe/ 证据引用；未证实条目保持 false。升级后的纪律守卫: verified:true 必须携带 docs/probe/ 证据引用（tests/test_creator_scraper.py TestSelectorDiscipline）。逆向分析详见 docs/reverse/creator-api.md。",
+    "how_to_verify": "1) 打开达人主页 https://www.tiktok.com/@{unique_id} 保存完整 HTML；2) 检查 <script id=\"__UNIVERSAL_DATA_FOR_REHYDRATION__\"> 或 <script id=\"SIGI_STATE\"> 中是否存在对应 JSON 路径；3) 确认后把 verified 改为 true 并注明验证日期。",
+    "supported_types": [
+      "json_path",
+      "css",
+      "xpath",
+      "regex"
+    ],
+    "json_path_syntax": "点号分隔，数组索引用 [n]；路径相对 root_candidates 命中的根节点",
+    "version": "0.1.1-probe",
+    "last_updated": "2026-10-07",
+    "probe_note": "2026-10-07 Agent O 实机探针（游客 curl_cffi chrome131 + 127.0.0.1:7892 代理）在 /@khaby.lame 得到 200 真实页，7 条目经证据证实翻转 verified: true（主控批准）；hashtag 页游客 SSR 为空壳，相关路径维持 false。证据见 docs/probe/probe-findings-2026-10-07.md。"
+  },
+  "urls": {
+    "profile_page": {
+      "type": "url_template",
+      "value": "https://www.tiktok.com/@{unique_id}",
+      "verified": true,
+      "note": "【探针已证实 2026-10-07】/@khaby.lame 游客态 200 且携带完整 user 数据，证据 docs/probe/20261007T144901Z_creator_khaby_lame_try1_body.html；verified 待纪律测试同步后翻转"
+    },
+    "showcase_page": {
+      "type": "url_template",
+      "value": "https://www.tiktok.com/@{unique_id}/showcase",
+      "verified": false,
+      "note": "假设的橱窗页 URL 模板；橱窗是否需要登录态/是否存在独立路径未实测"
+    }
+  },
+  "embedded_json": {
+    "universal_data_script_id": {
+      "type": "css",
+      "value": "script#__UNIVERSAL_DATA_FOR_REHYDRATION__",
+      "verified": true,
+      "note": "【探针已证实 2026-10-07】真实主页存在该节点且 JSON 可完整解析（约 260KB），证据 docs/probe/20261007T144901Z_creator_khaby_lame_try1_embedded___UNIVERSAL_DATA_FOR_REHYDRATION__.json"
+    },
+    "sigi_state_script_id": {
+      "type": "css",
+      "value": "script#SIGI_STATE",
+      "verified": false,
+      "note": "【探针 2026-10-07】真实主页无 SIGI_STATE 节点（仅 UNIVERSAL_DATA），回退路径保留但未验证"
+    },
+    "root_candidates": {
+      "type": "json_path",
+      "value": [
+        "__DEFAULT_SCOPE__['webapp.user-detail'].userInfo",
+        "UserInfoModule.userInfo",
+        "UserModule.users"
+      ],
+      "verified": true,
+      "note": "【探针已证实候选[0] 2026-10-07】__DEFAULT_SCOPE__['webapp.user-detail'].userInfo 在真实页命中（含 user/stats/statsV2/itemList 键）；后两个候选未验证。证据同上，证据 docs/probe/probe-findings-2026-10-07.md"
+    }
+  },
+  "fields": {
+    "creator_id": {
+      "type": "json_path",
+      "value": "user.id",
+      "css_fallback": "div[data-e2e='user-info'] a[data-e2e='user-link']",
+      "attribute": "href",
+      "href_regex": "/@([^/?#]+)",
+      "verified": true,
+      "note": "【探针已证实 2026-10-07】userInfo.user.id='127905465618821121'（khaby.lame）命中，证据 docs/probe/probe-findings-2026-10-07.md"
+    },
+    "nickname": {
+      "type": "json_path",
+      "value": "user.nickname",
+      "css_fallback": "h1[data-e2e='user-title']",
+      "verified": true,
+      "note": "【探针已证实 2026-10-07】userInfo.user.nickname 命中（'Khabane lame'），证据 docs/probe/probe-findings-2026-10-07.md"
+    },
+    "follower_count": {
+      "type": "json_path",
+      "value": "stats.followerCount",
+      "css_fallback": "[data-e2e='followers-count']",
+      "verified": true,
+      "note": "【探针已证实 2026-10-07】userInfo.stats.followerCount=163000000（int 取整）；另实测 userInfo.statsV2.followerCount=\"162998174\"（字符串、更精确），后续可考虑切换，证据 docs/probe/probe-findings-2026-10-07.md"
+    },
+    "bio": {
+      "type": "json_path",
+      "value": "user.signature",
+      "css_fallback": "div[data-e2e='user-bio']",
+      "verified": true,
+      "note": "【探针已证实 2026-10-07】userInfo.user.signature 命中（khaby.lame 完整简介），证据 docs/probe/probe-findings-2026-10-07.md"
+    },
+    "product_count": {
+      "type": "json_path",
+      "value": "commerceInfo.showcaseItemCount",
+      "css_fallback": "div[data-e2e='showcase'] a[data-e2e='product-card']",
+      "verified": false,
+      "note": "【探针 2026-10-07】userInfo 下无 commerceInfo 键，实测仅 user.commerceUserInfo={\"commerceUser\": false}（khaby.lame 非电商账号）——路径在非电商账号上不可判定，电商主页待测"
+    }
+  },
+  "videos": {
+    "item_list_json_path": {
+      "type": "json_path",
+      "value": "itemList",
+      "verified": false,
+      "note": "【探针 2026-10-07】路径键真实存在（userInfo.itemList）但游客态 SSR 值为 []，视频列表由客户端经签名 API 加载——本通道下 avg_views_30d 恒为 None，解析器优雅降级（实测通过）"
+    },
+    "sigi_item_module_key": {
+      "type": "json_path",
+      "value": "ItemModule",
+      "verified": false,
+      "note": "【探针 2026-10-07】真实主页无 SIGI_STATE，ItemModule 全文 0 次命中，未验证"
+    },
+    "play_count_json_path": {
+      "type": "json_path",
+      "value": "stats.playCount",
+      "verified": false,
+      "note": "【探针 2026-10-07】游客态无嵌入视频样本，无法证实；待登录态/签名 API 通道"
+    },
+    "desc_json_path": {
+      "type": "json_path",
+      "value": "desc",
+      "verified": false,
+      "note": "【探针 2026-10-07】游客态无嵌入视频样本，无法证实"
+    },
+    "max_sample": {
+      "type": "int",
+      "value": 30,
+      "verified": false,
+      "note": "avg_views_30d 采样上限：按页面顺序取最近 30 条"
+    }
+  },
+  "showcase_page": {
+    "product_id_regex": {
+      "type": "regex",
+      "value": "(?:/product/|product_id=)(\\d{6,})",
+      "verified": false,
+      "note": "从橱窗页链接中提取纯数字商品 ID（与 shop 侧类目页共用同一假设）"
+    }
+  },
+  "category_tags": {
+    "hashtag_regex": {
+      "type": "regex",
+      "value": "#([\\w\\u4e00-\\u9fff]+)",
+      "verified": false,
+      "note": "从 bio 与视频文案提取 hashtag（含中文）；上限 10 个由解析器控制"
+    },
+    "max_tags": {
+      "type": "int",
+      "value": 10,
+      "verified": false,
+      "note": "category_tags 最大标签数（category_tags 列为 String(500) 逗号拼接）"
+    }
+  }
+}

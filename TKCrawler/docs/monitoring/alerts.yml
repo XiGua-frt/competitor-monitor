@@ -1,0 +1,226 @@
+# Pool System Alerting Rules
+# 配合 src/pools/metrics.py 指标使用
+# 在 prometheus.yml 中通过 rule_files 引用此文件
+
+groups:
+  - name: pool_health_alerts
+    interval: 30s
+    rules:
+      # 1) 活跃账号数过低
+      - alert: PoolActiveAccountsLow
+        expr: pool_accounts_active < 3
+        for: 5m
+        labels:
+          severity: critical
+          component: pool
+        annotations:
+          summary: "活跃账号数过低"
+          description: "当前活跃账号仅 {{ $value }} 个，低于最小阈值 3，可能影响采集任务调度。"
+          runbook: "检查账号状态，补充新账号或恢复冷却账号。"
+
+      # 2) 账号配额使用率过高
+      - alert: PoolAccountQuotaHigh
+        expr: pool_account_quota_usage > 0.85
+        for: 10m
+        labels:
+          severity: warning
+          component: pool
+        annotations:
+          summary: "账号配额使用率过高"
+          description: "平均配额使用率为 {{ $value | humanizePercentage }}，接近每日限额。"
+          runbook: "考虑增加账号数量或降低任务优先级。"
+
+      # 3) 健康代理数不足
+      - alert: PoolHealthyProxiesLow
+        expr: pool_proxies_healthy < 2
+        for: 5m
+        labels:
+          severity: critical
+          component: pool
+        annotations:
+          summary: "健康代理数不足"
+          description: "当前仅有 {{ $value }} 个健康代理，低于推荐值 2。"
+          runbook: "检查代理池健康检查日志，补充或修复代理节点。"
+
+      # 4) 代理延迟过高
+      - alert: PoolProxyLatencyHigh
+        expr: pool_proxy_avg_latency_ms > 1000
+        for: 5m
+        labels:
+          severity: warning
+          component: pool
+        annotations:
+          summary: "代理延迟过高: {{ $labels.region }}"
+          description: "区域 {{ $labels.region }} 的平均延迟为 {{ $value }}ms，超过 1000ms 阈值。"
+          runbook: "检查该区域代理节点网络状况，考虑切换到其他区域。"
+
+      # 5) 账号健康分数下降
+      - alert: PoolAccountHealthScoreLow
+        expr: pool_account_health_score{status="active"} < 0.6
+        for: 10m
+        labels:
+          severity: warning
+          component: pool
+        annotations:
+          summary: "活跃账号健康分数低"
+          description: "活跃账号平均健康分数为 {{ $value }}，低于 0.6 阈值。"
+          runbook: "检查账号风控指标（WAF拦截、速率限制），可能需要轮换账号。"
+
+  - name: pool_scraping_alerts
+    interval: 30s
+    rules:
+      # 6) 请求成功率过低
+      - alert: PoolScrapingSuccessRateLow
+        expr: |
+          sum(rate(pool_scraping_requests_total{status="success"}[5m]))
+          /
+          sum(rate(pool_scraping_requests_total[5m]))
+          < 0.7
+        for: 5m
+        labels:
+          severity: critical
+          component: scraping
+        annotations:
+          summary: "请求成功率过低"
+          description: "最近 5 分钟请求成功率为 {{ $value | humanizePercentage }}，低于 70% 阈值。"
+          runbook: "检查 WAF 拦截、账号状态、代理健康度，可能需要切换策略。"
+
+      # 7) WAF 拦截频繁
+      - alert: PoolWafBlocksHigh
+        expr: increase(pool_scraping_waf_blocks_total[5m]) >= 3
+        for: 0m
+        labels:
+          severity: critical
+          component: scraping
+        annotations:
+          summary: "WAF 拦截频繁: {{ $labels.scraper }}"
+          description: "爬虫 {{ $labels.scraper }} 在 5 分钟内被拦截 {{ $value }} 次。"
+          runbook: "立即切换到 browser 通道，延长请求间隔（8-12s），更换 User-Agent 和指纹。"
+
+      # 8) 速率限制频繁
+      - alert: PoolRateLimitsHigh
+        expr: increase(pool_scraping_rate_limits_total[5m]) >= 5
+        for: 0m
+        labels:
+          severity: warning
+          component: scraping
+        annotations:
+          summary: "速率限制频繁: {{ $labels.scraper }}"
+          description: "爬虫 {{ $labels.scraper }} 在 5 分钟内触发 {{ $value }} 次速率限制。"
+          runbook: "增加请求间隔时间，降低并发数，检查账号配额。"
+
+      # 9) 请求延迟过高
+      - alert: PoolRequestLatencyHigh
+        expr: |
+          histogram_quantile(0.95,
+            sum(rate(pool_request_duration_seconds_bucket[5m])) by (le, scraper)
+          ) > 30
+        for: 10m
+        labels:
+          severity: warning
+          component: scraping
+        annotations:
+          summary: "请求延迟过高: {{ $labels.scraper }}"
+          description: "爬虫 {{ $labels.scraper }} 的 p95 延迟为 {{ $value }}s，超过 30s。"
+          runbook: "检查代理延迟、目标站点响应时间、网络状况。"
+
+      # 10) 某个爬虫完全失败
+      - alert: PoolScraperCompletelyFailed
+        expr: |
+          sum(rate(pool_scraping_requests_total{status="success"}[10m])) by (scraper) == 0
+          and
+          sum(rate(pool_scraping_requests_total[10m])) by (scraper) > 0
+        for: 10m
+        labels:
+          severity: critical
+          component: scraping
+        annotations:
+          summary: "爬虫完全失败: {{ $labels.scraper }}"
+          description: "爬虫 {{ $labels.scraper }} 在过去 10 分钟内无任何成功请求。"
+          runbook: "检查目标站点可用性、账号有效性、代理连通性，可能需要紧急维护。"
+
+  - name: pool_task_alerts
+    interval: 30s
+    rules:
+      # 11) 任务分配失败率高
+      - alert: PoolTaskAssignmentFailureRateHigh
+        expr: |
+          sum(rate(pool_task_assignment_failures_total[5m]))
+          /
+          (sum(rate(pool_task_assignments_total[5m])) + sum(rate(pool_task_assignment_failures_total[5m])))
+          > 0.2
+        for: 5m
+        labels:
+          severity: warning
+          component: scheduler
+        annotations:
+          summary: "任务分配失败率高"
+          description: "任务分配失败率为 {{ $value | humanizePercentage }}，超过 20% 阈值。"
+          runbook: "检查账号可用性、代理可用性，可能需要增加资源池容量。"
+
+      # 12) 无可用账号
+      - alert: PoolNoAvailableAccounts
+        expr: |
+          sum(rate(pool_task_assignment_failures_total{reason="no_available_account"}[5m])) > 0.1
+        for: 2m
+        labels:
+          severity: critical
+          component: scheduler
+        annotations:
+          summary: "无可用账号错误频发"
+          description: "过去 5 分钟内频繁出现无可用账号错误。"
+          runbook: "紧急检查账号池状态，所有账号可能处于冷却或暂停状态。"
+
+  - name: pool_data_quality_alerts
+    interval: 60s
+    rules:
+      # 13) 商品数据采集量异常低
+      - alert: PoolProductScrapingRateLow
+        expr: rate(pool_scraping_products_total[10m]) < 0.5
+        for: 15m
+        labels:
+          severity: warning
+          component: data_quality
+        annotations:
+          summary: "商品采集速率过低"
+          description: "商品采集速率为 {{ $value }}/s，低于预期 0.5/s。"
+          runbook: "检查商品爬虫状态、任务队列、账号可用性。"
+
+      # 14) 视频数据采集量异常低
+      - alert: PoolVideoScrapingRateLow
+        expr: rate(pool_scraping_videos_total[10m]) < 0.3
+        for: 15m
+        labels:
+          severity: warning
+          component: data_quality
+        annotations:
+          summary: "视频采集速率过低"
+          description: "视频采集速率为 {{ $value }}/s，低于预期 0.3/s。"
+          runbook: "检查视频爬虫状态、任务队列、账号可用性。"
+
+  - name: pool_system_alerts
+    interval: 60s
+    rules:
+      # 15) Metrics 服务停止上报
+      - alert: PoolMetricsDown
+        expr: up{job="pool-metrics"} == 0
+        for: 2m
+        labels:
+          severity: critical
+          component: monitoring
+        annotations:
+          summary: "Pool Metrics 服务宕机"
+          description: "Prometheus 无法抓取 pool-metrics 目标。"
+          runbook: "检查 metrics 服务进程状态、端口监听、防火墙规则。"
+
+      # 16) 指标抓取失败
+      - alert: PoolMetricsScrapeFailed
+        expr: up{job="pool-metrics"} == 0 or absent(up{job="pool-metrics"})
+        for: 5m
+        labels:
+          severity: warning
+          component: monitoring
+        annotations:
+          summary: "Pool Metrics 抓取异常"
+          description: "无法从 pool-metrics 目标抓取指标数据。"
+          runbook: "检查网络连通性、Prometheus 配置、目标服务健康状态。"

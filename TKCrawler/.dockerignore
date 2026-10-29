@@ -1,0 +1,39 @@
+# === 严禁打进镜像层的敏感文件 ===
+# .env 含真实凭据 (TikTok 账号、数据库密码); 容器凭据一律走
+# docker-compose.yml 的 environment 注入, 详见 docs/DEPLOYMENT.md
+.env
+.env.*
+!.env.example
+
+# === 版本控制与本地工具 ===
+.git
+.gitignore
+.workbuddy/
+.DS_Store
+
+# === 文档与测试 (镜像不需要) ===
+docs/
+tests/
+*.md
+
+# === 运行期产物 (容器内由卷挂载或运行时生成) ===
+data/
+logs/
+exports/
+
+# === Python 缓存 ===
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# === 虚拟环境 ===
+.venv/
+venv/
+
+# === Docker 自身文件无需进入构建上下文 ===
+Dockerfile
+docker-compose.yml
+.dockerignore

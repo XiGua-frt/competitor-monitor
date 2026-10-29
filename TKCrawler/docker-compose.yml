@@ -1,0 +1,118 @@
+version: '3.8'
+
+services:
+  # PostgreSQL 数据库
+  postgres:
+    image: postgres:13-alpine
+    container_name: tkcrawler_postgres
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-tiktok_crawler}
+      POSTGRES_USER: ${POSTGRES_USER:-crawler}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-secret_password}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./src/database/migrations:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-crawler}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - tkcrawler_network
+
+  # Redis 队列与缓存
+  redis:
+    image: redis:6-alpine
+    container_name: tkcrawler_redis
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes ${REDIS_PASSWORD:+--requirepass $REDIS_PASSWORD}
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - tkcrawler_network
+
+  # 爬虫主服务
+  crawler:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: tkcrawler_app
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    environment:
+      # 从.env文件读取
+      - TIKTOK_USERNAME=${TIKTOK_USERNAME}
+      - TIKTOK_PASSWORD=${TIKTOK_PASSWORD}
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=${POSTGRES_DB:-tiktok_crawler}
+      - POSTGRES_USER=${POSTGRES_USER:-crawler}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-secret_password}
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
+      - PROXY_HOST=${PROXY_HOST:-host.docker.internal}
+      - PROXY_PORT=${PROXY_PORT:-7892}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    volumes:
+      - ./src:/app/src
+      - ./logs:/app/logs
+      - ./exports:/app/exports
+    networks:
+      - tkcrawler_network
+    command: python main.py scheduler --start
+    restart: unless-stopped
+
+  # Prometheus 监控
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: tkcrawler_prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./docs/monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./docs/monitoring/alerting_rules.yml:/etc/prometheus/alerting_rules.yml
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+    networks:
+      - tkcrawler_network
+
+  # Grafana 可视化
+  grafana:
+    image: grafana/grafana:latest
+    container_name: tkcrawler_grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-admin}
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./docs/monitoring/grafana_dashboards_provider.yml:/etc/grafana/provisioning/dashboards/dashboards.yml
+      - ./docs/monitoring/grafana_dashboard.json:/etc/grafana/provisioning/dashboards/dashboard.json
+    depends_on:
+      - prometheus
+    networks:
+      - tkcrawler_network
+
+volumes:
+  postgres_data:
+  redis_data:
+  prometheus_data:
+  grafana_data:
+
+networks:
+  tkcrawler_network:
+    driver: bridge

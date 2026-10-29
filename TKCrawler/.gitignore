@@ -1,0 +1,27 @@
+# ---- 敏感数据（严禁入库）----
+# 会话/凭据材料：cookie、token、密钥
+.env
+data/session.json
+data/sessions/
+# 证据导出目录：含真实 msToken 等会话材料，仅本地保存
+docs/probe/
+
+# ---- 依赖与环境 ----
+.venv/
+venv/
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# ---- 运行产物 ----
+logs/
+*.log
+exports/
+data/*.log
+
+# ---- IDE / 系统 ----
+.DS_Store
+.idea/
+.vscode/

@@ -1,0 +1,177 @@
+{
+  "_meta": {
+    "warning": "待实机抓取校准：本文件所有选择器/JSON路径均为基于公开知识的【假设】初值，未经真实 TikTok Shop 页面实测。每个条目 verified 字段必须保持 false，直到有人在实机页面上确认该条目命中目标数据并人工改为 true。",
+    "how_to_verify": "1) 打开商品页保存完整 HTML；2) 检查 <script id=\"__UNIVERSAL_DATA_FOR_REHYDRATION__\"> 或 <script id=\"SIGI_STATE\"> 中是否存在对应 JSON 路径；3) 确认后把 verified 改为 true 并注明验证日期。",
+    "supported_types": ["json_path", "css", "xpath"],
+    "json_path_syntax": "点号分隔，数组索引用 [n]，如 productDetail.productInfo[0].title",
+    "version": "0.1.0-assumption",
+    "last_updated": "2026-10-07"
+  },
+  "urls": {
+    "product_page": {
+      "type": "url_template",
+      "value": "https://www.tiktok.com/shop/product/{product_id}",
+      "verified": false,
+      "note": "假设的商品详情页 URL 模板；TikTok Shop 域名结构（www/shop.tiktok.com、/view/product/ 等）未实测"
+    },
+    "category_ranking": {
+      "type": "url_template",
+      "value": "https://www.tiktok.com/shop/category/{category_path}",
+      "verified": false,
+      "note": "假设的类目榜 URL 模板，待实机确认"
+    }
+  },
+  "embedded_json": {
+    "universal_data_script_id": {
+      "type": "css",
+      "value": "script#__UNIVERSAL_DATA_FOR_REHYDRATION__",
+      "verified": false,
+      "note": "Next.js 页面常见内嵌数据节点；TikTok Shop 是否使用该节点未实测"
+    },
+    "sigi_state_script_id": {
+      "type": "css",
+      "value": "script#SIGI_STATE",
+      "verified": false,
+      "note": "旧版 TikTok Web 内嵌数据节点，作为回退；未实测"
+    },
+    "root_candidates": {
+      "type": "json_path",
+      "value": [
+        "__DEFAULT_SCOPE__['webapp.shop-product-detail']",
+        "__DEFAULT_SCOPE__['webapp.product-detail']",
+        "productDetail",
+        "itemInfo.itemStruct"
+      ],
+      "verified": false,
+      "note": "假设的嵌入 JSON 根节点候选，按顺序尝试取第一个命中者"
+    }
+  },
+  "fields": {
+    "product_id": {
+      "type": "json_path",
+      "value": "productDetail.id",
+      "css_fallback": "div[data-e2e='product-detail'] [data-product-id]",
+      "verified": false,
+      "note": "优先从 JSON 取；回退用 CSS data 属性（假设）"
+    },
+    "title": {
+      "type": "json_path",
+      "value": "productDetail.title",
+      "css_fallback": "h1[data-e2e='product-title']",
+      "verified": false,
+      "note": "假设"
+    },
+    "category_l1": {
+      "type": "json_path",
+      "value": "productDetail.categoryPath[0]",
+      "css_fallback": "nav[aria-label='breadcrumb'] a:nth-of-type(1)",
+      "verified": false,
+      "note": "面包屑第一级，假设"
+    },
+    "category_l2": {
+      "type": "json_path",
+      "value": "productDetail.categoryPath[1]",
+      "css_fallback": "nav[aria-label='breadcrumb'] a:nth-of-type(2)",
+      "verified": false,
+      "note": "面包屑第二级，假设"
+    },
+    "category_l3": {
+      "type": "json_path",
+      "value": "productDetail.categoryPath[2]",
+      "css_fallback": "nav[aria-label='breadcrumb'] a:nth-of-type(3)",
+      "verified": false,
+      "note": "面包屑第三级，假设"
+    },
+    "price_current": {
+      "type": "json_path",
+      "value": "productDetail.price.salePrice",
+      "css_fallback": "div[data-e2e='product-price'] span:nth-of-type(1)",
+      "verified": false,
+      "note": "假设为数值（USD）；若实机为字符串需在解析器做清洗"
+    },
+    "price_original": {
+      "type": "json_path",
+      "value": "productDetail.price.originalPrice",
+      "css_fallback": "div[data-e2e='product-price'] del",
+      "verified": false,
+      "note": "划线价，假设；可能缺失（无折扣时）"
+    },
+    "sales_30d": {
+      "type": "json_path",
+      "value": "productDetail.sales30dText",
+      "css_fallback": "span[data-e2e='product-sold-count']",
+      "verified": false,
+      "note": "原始区间文本如 '500-1k'/'10k+'，由 parse_sales_range 转中位数；假设"
+    },
+    "listed_date": {
+      "type": "json_path",
+      "value": "productDetail.listedDate",
+      "css_fallback": "div[data-e2e='product-listed-date']",
+      "verified": false,
+      "note": "上架时间，前台可能不直接暴露，未实测；缺失时解析器返回 None"
+    },
+    "shop_id": {
+      "type": "json_path",
+      "value": "productDetail.shopInfo.shopId",
+      "css_fallback": "a[data-e2e='shop-card'][data-shop-id]",
+      "verified": false,
+      "note": "假设"
+    },
+    "shop_name": {
+      "type": "json_path",
+      "value": "productDetail.shopInfo.shopName",
+      "css_fallback": "a[data-e2e='shop-card'] .shop-name",
+      "verified": false,
+      "note": "假设"
+    },
+    "creator_count": {
+      "type": "json_path",
+      "value": "productDetail.creatorCount",
+      "css_fallback": "div[data-e2e='creator-count']",
+      "verified": false,
+      "note": "'达人带货'模块关联达人数，假设"
+    },
+    "video_count_7d": {
+      "type": "json_path",
+      "value": "productDetail.videoCount7d",
+      "css_fallback": "div[data-e2e='video-count-7d']",
+      "verified": false,
+      "note": "近7天关联视频数，假设；页面可能需等待 XHR"
+    },
+    "review_count": {
+      "type": "json_path",
+      "value": "productDetail.reviewInfo.reviewCount",
+      "css_fallback": "div[data-e2e='review-count']",
+      "verified": false,
+      "note": "假设"
+    },
+    "rating": {
+      "type": "json_path",
+      "value": "productDetail.reviewInfo.rating",
+      "css_fallback": "div[data-e2e='product-rating']",
+      "verified": false,
+      "note": "假设为浮点 0-5"
+    }
+  },
+  "category_page": {
+    "product_link": {
+      "type": "css",
+      "value": "a[data-e2e='product-card']",
+      "attribute": "href",
+      "verified": false,
+      "note": "类目榜商品卡片链接（假设），从 href 中提取商品 ID"
+    },
+    "product_link_xpath": {
+      "type": "xpath",
+      "value": "//a[contains(@href, '/product/')]",
+      "verified": false,
+      "note": "XPath 回退：任何含 /product/ 的链接（假设）"
+    },
+    "product_id_regex": {
+      "type": "regex",
+      "value": "(?:/product/|product_id=)(\\d{6,})",
+      "verified": false,
+      "note": "从链接中提取纯数字商品 ID 的正则（假设 ID 为长数字串）"
+    }
+  }
+}

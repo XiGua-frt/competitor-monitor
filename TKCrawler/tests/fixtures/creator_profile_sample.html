@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>@homegadget_pro - TikTok</title>
+  <!--
+    Fixture built to match the ASSUMED TikTok user-profile page structure
+    (__UNIVERSAL_DATA_FOR_REHYDRATION__ node + JSON paths from
+    creator_selectors.json, all marked "verified": false). This fixture
+    validates parser LOGIC only; real page structure is unverified.
+    Reverse writeup: docs/reverse/creator-api.md
+  -->
+  <script id="__UNIVERSAL_DATA_FOR_REHYDRATION__" type="application/json">
+  {
+    "__DEFAULT_SCOPE__": {
+      "webapp.user-detail": {
+        "userInfo": {
+          "user": {
+            "id": "7309998888777666",
+            "uniqueId": "homegadget_pro",
+            "nickname": "HomeGadget Pro",
+            "signature": "Daily kitchen finds #TikTokMadeMeBuyIt #homegadgets | US warehouse"
+          },
+          "stats": {
+            "followerCount": 52300,
+            "videoCount": 342,
+            "heartCount": 1200000
+          },
+          "commerceInfo": {
+            "showcaseItemCount": 12
+          },
+          "itemList": [
+            { "id": "7401", "desc": "mini blender restock #homegadgets", "stats": { "playCount": 1200 } },
+            { "id": "7402", "desc": "unboxing day #kitchenfinds", "stats": { "playCount": 3400 } },
+            { "id": "7403", "desc": "before vs after #homegadgets", "stats": { "playCount": 2600 } },
+            { "id": "7404", "desc": "top 3 gadgets", "stats": { "playCount": 5000 } },
+            { "id": "7405", "desc": "budget edition #kitchenfinds", "stats": { "playCount": 1800 } }
+          ]
+        }
+      }
+    }
+  }
+  </script>
+</head>
+<body>
+  <div data-e2e="user-info">
+    <h1 data-e2e="user-title">HomeGadget Pro</h1>
+    <div data-e2e="user-bio">Daily kitchen finds #TikTokMadeMeBuyIt #homegadgets | US warehouse</div>
+    <a data-e2e="user-link" href="/@homegadget_pro">@homegadget_pro</a>
+    <div><span data-e2e="followers-count">52.3K</span> followers</div>
+  </div>
+  <div data-e2e="showcase">
+    <a data-e2e="product-card" href="/shop/product/7301234567890123456"></a>
+    <a data-e2e="product-card" href="/shop/product/7309876543210987654"></a>
+  </div>
+</body>
+</html>

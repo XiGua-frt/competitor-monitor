@@ -1,0 +1,84 @@
+{
+  "_meta": {
+    "note": "ASSUMED /api/shop/product/videos response envelope (verified: false). Built to match video_selectors.json root candidates and field paths; structure pending on-device calibration."
+  },
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "product_id": "7234567890123456789",
+    "videos": [
+      {
+        "id": "7300000000000000001",
+        "create_time": 1720000000,
+        "author": {"id": "6510000000000000001"},
+        "video": {"duration": 15300},
+        "statistics": {"play_count": 1250000, "digg_count": 88000, "comment_count": 1200, "share_count": 3400}
+      },
+      {
+        "id": "7300000000000000002",
+        "create_time": 1720086400,
+        "author": {"id": "6510000000000000002"},
+        "video": {"duration": 30200},
+        "statistics": {"play_count": 88000, "digg_count": 5400, "comment_count": 210, "share_count": 96},
+        "ad_info": {"is_ad": true}
+      },
+      {
+        "id": "7300000000000000003",
+        "create_time": 1720172800,
+        "author": {"id": "6510000000000000003"},
+        "video": {"duration": 9800},
+        "statistics": {"play_count": 432, "digg_count": 21, "comment_count": 3, "share_count": 1}
+      },
+      {
+        "id": "7300000000000000004",
+        "create_time": 1720259200,
+        "author": {"id": "6510000000000000004"},
+        "video": {"duration": 60500},
+        "statistics": {"play_count": 15200000, "digg_count": 1200000, "comment_count": 24500, "share_count": 88000}
+      },
+      {
+        "id": "7300000000000000005",
+        "create_time": 1720345600,
+        "author": {"id": "6510000000000000005"},
+        "video": {"duration": 21000},
+        "statistics": {"play_count": 0, "digg_count": 0, "comment_count": 0, "share_count": 0}
+      },
+      {
+        "id": "7300000000000000006",
+        "create_time": 1720432000,
+        "author": {"id": "6510000000000000006"},
+        "video": {"duration": 45600},
+        "statistics": {"play_count": 960000, "digg_count": 71000, "comment_count": 890, "share_count": 2100},
+        "commerce_info": {"is_commerce": true}
+      },
+      {
+        "id": "7300000000000000007",
+        "create_time": 1720518400,
+        "author": {"id": "6510000000000000007"},
+        "video": {"duration": 12000},
+        "statistics": {"play_count": 45500, "digg_count": 2300, "comment_count": 88, "share_count": 40}
+      },
+      {
+        "id": "7300000000000000008",
+        "create_time": 1720604800,
+        "author": {"id": "6510000000000000008"},
+        "video": {"duration": 18900},
+        "statistics": {"play_count": 210000, "digg_count": 15000, "comment_count": 340, "share_count": 720}
+      },
+      {
+        "id": "7300000000000000009",
+        "create_time": 1720691200,
+        "author": {"id": "6510000000000000009"},
+        "video": {"duration": 27300},
+        "statistics": {"play_count": 6700, "digg_count": 410, "comment_count": 12, "share_count": 5}
+      },
+      {
+        "id": "7300000000000000010",
+        "create_time": 1720777600,
+        "author": {"id": "6510000000000000010"},
+        "video": {"duration": 33000},
+        "statistics": {"play_count": 3400000, "digg_count": 260000, "comment_count": 5100, "share_count": 15600}
+      }
+    ]
+  }
+}

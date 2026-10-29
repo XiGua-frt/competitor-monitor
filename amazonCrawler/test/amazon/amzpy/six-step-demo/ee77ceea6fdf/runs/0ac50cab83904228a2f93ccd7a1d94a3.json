@@ -1,0 +1,16 @@
+{
+  "run_id": "0ac50cab83904228a2f93ccd7a1d94a3",
+  "mode": "simulation",
+  "status": "cooldown",
+  "requests": 1,
+  "snapshots_saved": 0,
+  "tasks_done": 0,
+  "errors": [
+    {
+      "task_id": "81558655bdb540d590c87ec7ad882605",
+      "reason": "rate_limited"
+    }
+  ],
+  "started_at": "2026-10-26T08:21:12.694956+00:00",
+  "finished_at": "2026-10-26T08:21:27.694956+00:00"
+}

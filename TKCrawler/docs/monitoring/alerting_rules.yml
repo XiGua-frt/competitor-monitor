@@ -1,0 +1,40 @@
+# TKCrawler 告警规则
+# 由 prometheus.yml 的 rule_files 引用（/etc/prometheus/alerting_rules.yml）
+# 注意：需在 docker-compose.yml 的 prometheus 服务中追加该文件的挂载（见 README）。
+
+groups:
+  - name: crawler_alerts
+    rules:
+      # 1) 请求成功率 < 80%（5m 窗口，按爬虫分组）
+      - alert: ScraperSuccessRateLow
+        expr: |
+          sum(rate(scraper_requests_total{status="success"}[5m])) by (scraper)
+          /
+          sum(rate(scraper_requests_total[5m])) by (scraper)
+          < 0.8
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "爬虫 {{ $labels.scraper }} 请求成功率低于 80%"
+          description: "最近 5 分钟 {{ $labels.scraper }} 的请求成功率为 {{ $value | humanizePercentage }}，请检查反检测通道/登录态。"
+
+      # 2) WAF 拦截：5 分钟内 >= 3 次
+      - alert: WafBlocksHigh
+        expr: increase(scraper_waf_blocks_total[5m]) >= 3
+        for: 0m
+        labels:
+          severity: critical
+        annotations:
+          summary: "爬虫 {{ $labels.scraper }} 5 分钟内被 WAF 拦截 {{ $value }} 次"
+          description: "WAF 拦截频发，建议切换 browser 通道或延长请求间隔（5-8s 随机）。"
+
+      # 3) 数据空字段率 > 30%（Gauge，持续 5 分钟触发）
+      - alert: DataMissingFieldsRatioHigh
+        expr: data_quality_missing_fields_ratio > 0.3
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "表 {{ $labels.table }} 空字段率超过 30%"
+          description: "{{ $labels.table }} 当前空字段率为 {{ $value | humanizePercentage }}，可能是页面结构变化或解析器失效。"

@@ -1,0 +1,138 @@
+{
+  "generated_at": "2026-10-26T08:21:27.694956+00:00",
+  "product_count": 3,
+  "latest_observation_count": 3,
+  "snapshot_count": 6,
+  "task_counts": {
+    "done": 8,
+    "pending": 1
+  },
+  "usage": {
+    "hour": 5,
+    "day": 5,
+    "run": 0
+  },
+  "control": {
+    "consecutive_errors": 0,
+    "cooldown_until": 1793006487.694956,
+    "next_request_at": 1793002902.694956,
+    "pause_reason": null,
+    "paused": false
+  },
+  "missing_field_rates": {
+    "price": 0.0,
+    "currency": 0.0,
+    "rating": 0.0,
+    "rating_count": 0.0,
+    "brand": 0.0,
+    "seller_name": 0.3333333333333333,
+    "date_first_available": 0.0,
+    "best_sellers_ranks": 0.0,
+    "recent_purchase_text": 1.0
+  },
+  "changes": [
+    {
+      "asin": "B0GWVTMR4Q",
+      "profile": "ae81bb40124994cceb936c7e",
+      "from": "2026-10-25T08:19:56.694956+00:00",
+      "to": "2026-10-26T08:21:12.694956+00:00",
+      "price_change": null,
+      "rating_count_change": null,
+      "bsr_changes": [],
+      "sales_change": null,
+      "reasons": [
+        "variant_unconfirmed_or_changed"
+      ],
+      "meaning": "rating count is page-displayed ratings, not written reviews or sales; BSR is a category rank"
+    },
+    {
+      "asin": "B0H22J6F1B",
+      "profile": "ae81bb40124994cceb936c7e",
+      "from": "2026-10-25T08:20:11.694956+00:00",
+      "to": "2026-10-26T08:20:42.694956+00:00",
+      "price_change": null,
+      "rating_count_change": null,
+      "bsr_changes": [],
+      "sales_change": null,
+      "reasons": [
+        "variant_unconfirmed_or_changed"
+      ],
+      "meaning": "rating count is page-displayed ratings, not written reviews or sales; BSR is a category rank"
+    },
+    {
+      "asin": "B0DLQ8MVF7",
+      "profile": "ae81bb40124994cceb936c7e",
+      "from": "2026-10-25T08:20:26.694956+00:00",
+      "to": "2026-10-26T08:20:57.694956+00:00",
+      "price_change": null,
+      "rating_count_change": null,
+      "bsr_changes": [],
+      "sales_change": null,
+      "reasons": [
+        "variant_unconfirmed_or_changed"
+      ],
+      "meaning": "rating count is page-displayed ratings, not written reviews or sales; BSR is a category rank"
+    }
+  ],
+  "recent_runs": [
+    {
+      "id": "0ac50cab83904228a2f93ccd7a1d94a3",
+      "started_at": 1793002872.694956,
+      "mode": "simulation",
+      "finished_at": 1793002887.694956,
+      "summary": {
+        "errors": [
+          {
+            "reason": "rate_limited",
+            "task_id": "81558655bdb540d590c87ec7ad882605"
+          }
+        ],
+        "finished_at": "2026-10-26T08:21:27.694956+00:00",
+        "mode": "simulation",
+        "requests": 1,
+        "run_id": "0ac50cab83904228a2f93ccd7a1d94a3",
+        "snapshots_saved": 0,
+        "started_at": "2026-10-26T08:21:12.694956+00:00",
+        "status": "cooldown",
+        "tasks_done": 0
+      }
+    },
+    {
+      "id": "99de459d77054715923d04ca1c2be38a",
+      "started_at": 1793002827.694956,
+      "mode": "simulation",
+      "finished_at": 1793002872.694956,
+      "summary": {
+        "errors": [],
+        "finished_at": "2026-10-26T08:21:12.694956+00:00",
+        "mode": "simulation",
+        "requests": 4,
+        "run_id": "99de459d77054715923d04ca1c2be38a",
+        "snapshots_saved": 3,
+        "started_at": "2026-10-26T08:20:27.694956+00:00",
+        "status": "completed",
+        "tasks_done": 4
+      }
+    },
+    {
+      "id": "a512989a03f24ed787de8ec7418f9726",
+      "started_at": 1792916381.694956,
+      "mode": "simulation",
+      "finished_at": 1792916426.694956,
+      "summary": {
+        "errors": [],
+        "finished_at": "2026-10-25T08:20:26.694956+00:00",
+        "mode": "simulation",
+        "requests": 4,
+        "run_id": "a512989a03f24ed787de8ec7418f9726",
+        "snapshots_saved": 3,
+        "started_at": "2026-10-25T08:19:41.694956+00:00",
+        "status": "completed",
+        "tasks_done": 4
+      }
+    }
+  ],
+  "simulation_only": true,
+  "usage_window": "rolling_3600_and_86400_seconds_includes_reserved_failed_and_retried_requests",
+  "data_semantics": "latest observation is not a current live quote; last valid price retains its original timestamp; ratings and BSR are not exact sales"
+}

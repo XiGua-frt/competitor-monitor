@@ -1,0 +1,27 @@
+{
+  "categories": [
+    {
+      "category_id": "605196",
+      "level": 1,
+      "category_name": "Automotive & Motorcycle"
+    },
+    {
+      "category_id": "940808",
+      "level": 2,
+      "category_name": "Car Washing & Maintenance"
+    },
+    {
+      "category_id": "945160",
+      "level": 3,
+      "category_name": "Water Guns & Snow Foam Lances"
+    }
+  ],
+  "category_info": {
+    "recommended_categories": [
+      {
+        "category_id": "999001",
+        "category_name": "NEW SHOULD WIN"
+      }
+    ]
+  }
+}

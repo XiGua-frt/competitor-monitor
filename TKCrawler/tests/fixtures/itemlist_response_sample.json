@@ -1,0 +1,124 @@
+{
+  "cursor": "-1",
+  "extra": {
+    "fatal_item_ids": [],
+    "logid": "20261008124528A6981289B9DA05BA5A7B",
+    "now": 1791434728000
+  },
+  "hasMore": false,
+  "itemList": [
+    {
+      "AIGCDescription": "",
+      "CategoryType": 120,
+      "ShowAIGC": true,
+      "author": {
+        "avatarThumb": "https://p16-common-sign.tiktokcdn.com/tos-alisg-avt-0068/cd0a7dcd755776bf867b5a91f758af79~tplv-tiktokx-cropcenter:100:100.jpeg",
+        "commentSetting": 0,
+        "downloadSetting": 0,
+        "duetSetting": 0,
+        "ftc": false,
+        "id": "7595450576105374741",
+        "isADVirtual": false,
+        "isEmbedBanned": false,
+        "nickname": "Wren",
+        "openFavorite": false,
+        "privateAccount": false,
+        "relation": 0,
+        "secUid": "MS4wLjABAAAAnrn369W7f04wKrl5_r3jZ7pn-M-OQH04eBPxpruRceppgs7T2mWZvEhMF6VBpK0x",
+        "secret": false,
+        "signature": "Nice to meet you",
+        "stitchSetting": 0,
+        "uniqueId": "dalil3185",
+        "verified": false
+      },
+      "authorStats": {
+        "diggCount": 36,
+        "followerCount": 2,
+        "followingCount": 5,
+        "friendCount": 0,
+        "heart": 13,
+        "heartCount": 13,
+        "videoCount": 1
+      },
+      "authorStatsV2": {
+        "diggCount": "36",
+        "followerCount": "2",
+        "followingCount": "5",
+        "friendCount": "0",
+        "heart": "13",
+        "heartCount": "13",
+        "videoCount": "1"
+      },
+      "challenges": [],
+      "collected": false,
+      "contents": [],
+      "createTime": 1777909876,
+      "desc": "Welcome to Zhangjiajie China #Zhangjiajie #chinatravel",
+      "digged": false,
+      "diversificationId": "shoutout",
+      "duetDisplay": 0,
+      "duetEnabled": false,
+      "id": "7636064756910034197",
+      "isAd": false,
+      "item_control": {"can_repost": true},
+      "music": {
+        "id": 7000000000000000000,
+        "title": "original sound - Wren",
+        "authorName": "Wren",
+        "duration": 30
+      },
+      "needPinnedItemIds": false,
+      "officalItem": false,
+      "privateItem": false,
+      "stats": {
+        "playCount": 578,
+        "diggCount": 13,
+        "commentCount": 0,
+        "collectCount": 1,
+        "shareCount": 0
+      },
+      "statsV2": {
+        "playCount": "578",
+        "diggCount": "13",
+        "commentCount": "0",
+        "collectCount": "1",
+        "shareCount": "0"
+      },
+      "stitchDisplay": 0,
+      "stitchEnabled": false,
+      "textExtra": [
+        {
+          "awemeId": "",
+          "hashtagName": "Zhangjiajie",
+          "isCommerce": false,
+          "type": 1
+        },
+        {
+          "awemeId": "",
+          "hashtagName": "chinatravel",
+          "isCommerce": false,
+          "type": 1
+        }
+      ],
+      "textLanguage": "en",
+      "video": {
+        "bitrate": 2213000,
+        "codecType": "h264",
+        "cover": "https://p19-common-sign.tiktokcdn-us.com/cover-sample.jpeg",
+        "definition": "540p",
+        "downloadAddr": "https://v16-webapp.tiktok.com/video-sample/?is_play_url=1",
+        "duration": 30,
+        "dynamicCover": "https://p19-common-sign.tiktokcdn-us.com/dynamic-cover-sample.jpeg",
+        "height": 960,
+        "id": "7636064756910034197",
+        "ratio": "540p",
+        "VQScore": "2.4",
+        "width": 540
+      }
+    }
+  ],
+  "log_pb": {"impr_id": "20261008124528A6981289B9DA05BA5A7B"},
+  "status_code": 0,
+  "statusCode": 0,
+  "status_msg": ""
+}

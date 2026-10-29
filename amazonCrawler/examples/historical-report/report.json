@@ -1,0 +1,49 @@
+{
+  "generated_at": "2026-10-10T08:41:00.543405+00:00",
+  "product_count": 40,
+  "latest_observation_count": 3,
+  "snapshot_count": 3,
+  "task_counts": {},
+  "usage": {
+    "hour": 0,
+    "day": 0,
+    "run": 0
+  },
+  "control": {},
+  "missing_field_rates": {
+    "price": 0.0,
+    "currency": 0.0,
+    "rating": 0.0,
+    "rating_count": 0.0,
+    "brand": 0.0,
+    "seller_name": 0.3333333333333333,
+    "date_first_available": 0.0,
+    "best_sellers_ranks": 0.0,
+    "recent_purchase_text": 1.0
+  },
+  "changes": [],
+  "recent_runs": [
+    {
+      "id": "import:4373fc8cffb44fbb8ed595ea6493cc2a",
+      "started_at": 1791621657.945077,
+      "mode": "offline_import",
+      "finished_at": 1791621657.945077,
+      "summary": {
+        "imported_asins": [
+          "B0DLQ8MVF7",
+          "B0GWVTMR4Q",
+          "B0H22J6F1B"
+        ],
+        "mode": "offline_import",
+        "note": "Original observed timestamps retained; no request or budget consumption.",
+        "requests": 0,
+        "run_id": "import:4373fc8cffb44fbb8ed595ea6493cc2a",
+        "search_records": 48,
+        "snapshots_added": 3
+      }
+    }
+  ],
+  "simulation_only": true,
+  "usage_window": "rolling_3600_and_86400_seconds_includes_reserved_failed_and_retried_requests",
+  "data_semantics": "latest observation is not a current live quote; last valid price retains its original timestamp; ratings and BSR are not exact sales"
+}

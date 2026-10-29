@@ -1,0 +1,97 @@
+{
+  "_meta": {
+    "owner": "Agent E (video stream scraper)",
+    "note": "All endpoints and JSON paths are ASSUMPTIONS pending on-device verification. Endpoint /api/shop/product/videos comes from the task card and is documented in NO public project; response shape follows generic TikTok web conventions. See docs/reverse/video-api.md. Update entries after real-page calibration; flip verified to true only after live validation.",
+    "all_verified_false_by_default": true
+  },
+  "urls": {
+    "product_videos_api": {
+      "value": "https://www.tiktok.com/api/shop/product/videos",
+      "verified": false
+    },
+    "product_page": {
+      "value": "https://www.tiktok.com/product/{product_id}",
+      "verified": false
+    }
+  },
+  "api_params": {
+    "static_query": {
+      "value": "aid=1988&app_language=en&device_platform=web_pc&browser_language=en-US&browser_name=Mozilla&browser_online=true&channel=tiktok_web&cookie_enabled=true&platform=PC&screen_height=1080&screen_width=1920",
+      "verified": false,
+      "note": "Common public web-API baseline params; exact set pending capture"
+    },
+    "count_key": {"value": "count", "verified": false},
+    "product_id_key": {"value": "product_id", "verified": false},
+    "ms_token_key": {"value": "msToken", "verified": false}
+  },
+  "embedded_json": {
+    "universal_data_script_id": {
+      "value": "#__UNIVERSAL_DATA_FOR_REHYDRATION__",
+      "verified": false
+    },
+    "sigi_state_script_id": {
+      "value": "#SIGI_STATE",
+      "verified": false
+    },
+    "video_root_candidates": {
+      "value": [
+        "__DEFAULT_SCOPE__['webapp.product-detail'].productDetail.videoList",
+        "__DEFAULT_SCOPE__['webapp.product-detail'].data.video_list",
+        "data.videos",
+        "data.video_list",
+        "itemList",
+        "aweme_list"
+      ],
+      "verified": false,
+      "note": "First dict-or-list hit wins; API responses walk the last four, page JSON the first two"
+    }
+  },
+  "fields": {
+    "video_id": {
+      "json_paths": ["id", "aweme_id", "video.id", "item_id"],
+      "verified": false
+    },
+    "author_id": {
+      "json_paths": ["author.id", "author_id", "author.uid"],
+      "verified": false
+    },
+    "publish_time": {
+      "json_paths": ["create_time", "createTime", "publish_time"],
+      "verified": false,
+      "note": "Unix epoch seconds; normalized to ISO8601 UTC string"
+    },
+    "views": {
+      "json_paths": ["statistics.play_count", "stats.play_count", "play_count", "video.play_count"],
+      "verified": false
+    },
+    "likes": {
+      "json_paths": ["statistics.digg_count", "stats.digg_count", "digg_count"],
+      "verified": false
+    },
+    "comments": {
+      "json_paths": ["statistics.comment_count", "stats.comment_count", "comment_count"],
+      "verified": false
+    },
+    "shares": {
+      "json_paths": ["statistics.share_count", "stats.share_count", "share_count"],
+      "verified": false
+    },
+    "duration": {
+      "json_paths": ["video.duration", "duration"],
+      "verified": false,
+      "note": "Assumed milliseconds (TikTok web convention)"
+    },
+    "is_paid": {
+      "json_paths": [],
+      "truthy_candidates": [
+        "ad_info.is_ad",
+        "commerce_info.is_commerce",
+        "is_ad_fake",
+        "is_paid_content",
+        "sponsor_data.sponsored"
+      ],
+      "verified": false,
+      "note": "Spark Ads flag has no single authoritative public field: any truthy candidate => True, all missing => False. Pending calibration against a known paid video"
+    }
+  }
+}

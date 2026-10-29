@@ -1,0 +1,16 @@
+# 种子商品追踪清单 —— watchlist_daily_job 每日快照的采集目标
+#
+# 格式: product_id 为 TikTok Shop 商品数字 ID（PDP URL 尾段）。
+#   https://shop.tiktok.com/view/product/1729480426738058662?region=MY
+#                                            ^^^^^^^^^^^^^^^^^^ 这个就是 product_id
+# note 仅注释用途，不参与采集。
+#
+# 维护建议: 目标品 + 竞品混着放；10-30 个为宜（每日流量 ≈ 数量 × 140KB）。
+# 每日定时: tasks.yaml 的 scrape_watchlist (1d) → main.py scheduler --start
+
+products:
+  - product_id: "1729480426738058662"
+    note: "MY 水枪喷头 Autozo Carpro（首个 e2e verified 基线, 累计1584/RM19.9）"
+  # 在下面继续添加商品 ID：
+  # - product_id: "7xxxxxxxxxxxxxxxxxx"
+  #   note: "竞品 xxx"

@@ -1,0 +1,11 @@
+{
+  "run_id": "99de459d77054715923d04ca1c2be38a",
+  "mode": "simulation",
+  "status": "completed",
+  "requests": 4,
+  "snapshots_saved": 3,
+  "tasks_done": 4,
+  "errors": [],
+  "started_at": "2026-10-26T08:20:27.694956+00:00",
+  "finished_at": "2026-10-26T08:21:12.694956+00:00"
+}

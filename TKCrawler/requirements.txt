@@ -1,0 +1,47 @@
+# ============================================
+# TikTok 跨境选品爬虫系统 - Python依赖
+# ============================================
+
+# 反检测基建
+curl-cffi>=0.6.0           # TLS/JA3/JA4指纹模拟
+camoufox>=0.4.0            # 反检测Firefox浏览器
+playwright>=1.40.0         # 备用通道
+
+# 数据库与ORM
+psycopg2-binary>=2.9.9     # PostgreSQL驱动
+sqlalchemy>=2.0.0          # ORM
+alembic>=1.13.0            # 数据库迁移
+
+# 调度与队列
+apscheduler>=3.10.4        # 周期调度器
+redis>=5.0.0               # 任务队列
+celery>=5.3.0              # 分布式任务(可选)
+
+# HTTP与解析
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+lxml>=5.1.0
+parsel>=1.8.0              # CSS/XPath选择器
+
+# 外部数据集成
+pytrends>=4.9.0            # Google Trends
+amazon-paapi>=5.1.0        # Amazon Product API(可选)
+
+# 监控与日志
+prometheus-client>=0.19.0  # Prometheus metrics
+sentry-sdk>=1.40.0         # 错误追踪
+loguru>=0.7.2              # 日志
+
+# 工具库
+pydantic>=2.5.0            # 数据验证
+python-dotenv>=1.0.0       # 环境变量
+pyyaml>=6.0                # YAML配置
+tenacity>=8.2.3            # 重试机制
+fake-useragent>=1.4.0      # User-Agent池
+
+# 开发工具
+pytest>=7.4.0
+pytest-cov>=4.1.0
+pytest-asyncio>=0.21.0
+black>=23.12.0             # 代码格式化
+flake8>=7.0.0              # 代码检查

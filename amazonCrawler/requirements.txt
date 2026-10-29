@@ -1,0 +1,33 @@
+# amazonCrawler 依赖（Python 3.11）
+
+# 数据库
+sqlalchemy>=2.0
+psycopg2-binary>=2.9
+
+# HTTP / 反检测
+curl-cffi>=0.7
+
+# 配置
+python-dotenv>=1.0
+pydantic>=2.0
+pyyaml>=6.0
+
+# 日志 / 重试
+loguru>=0.7
+tenacity>=8.0
+
+# 限流配额
+redis>=5.0
+
+# 调度
+apscheduler>=3.10
+
+# 监控
+prometheus-client>=0.19
+
+# HTML 解析（Agent C 解析器使用）
+beautifulsoup4>=4.12
+lxml>=5.0
+
+# 测试
+pytest>=8.0

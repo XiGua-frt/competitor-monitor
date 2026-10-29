@@ -1,0 +1,124 @@
+{
+  "accounts": {
+    "total": 7,
+    "healthy": 5,
+    "unhealthy": 2,
+    "health_rate": 0.714,
+    "details": [
+      {
+        "account_id": "acc_00000000",
+        "username": "user_0",
+        "healthy": true,
+        "response_time": 0.523,
+        "status": "active",
+        "health_score": 1.0,
+        "daily_usage": "50/200",
+        "timestamp": "2026-10-08T10:30:00"
+      },
+      {
+        "account_id": "acc_00000001",
+        "username": "user_1",
+        "healthy": true,
+        "response_time": 0.612,
+        "status": "active",
+        "health_score": 1.0,
+        "daily_usage": "75/200",
+        "timestamp": "2026-10-08T10:30:01"
+      },
+      {
+        "account_id": "acc_00000002",
+        "username": "user_2",
+        "healthy": true,
+        "response_time": 0.489,
+        "status": "active",
+        "health_score": 1.0,
+        "daily_usage": "30/200",
+        "timestamp": "2026-10-08T10:30:02"
+      },
+      {
+        "account_id": "acc_00000003",
+        "username": "user_3",
+        "healthy": true,
+        "response_time": 0.701,
+        "status": "active",
+        "health_score": 1.0,
+        "daily_usage": "120/200",
+        "timestamp": "2026-10-08T10:30:03"
+      },
+      {
+        "account_id": "acc_00000004",
+        "username": "user_4",
+        "healthy": true,
+        "response_time": 0.556,
+        "status": "active",
+        "health_score": 1.0,
+        "daily_usage": "95/200",
+        "timestamp": "2026-10-08T10:30:04"
+      },
+      {
+        "account_id": "acc_00000005",
+        "username": "user_5",
+        "healthy": false,
+        "response_time": 0.0,
+        "status": "active",
+        "health_score": 0.5,
+        "daily_usage": "180/200",
+        "timestamp": "2026-10-08T10:30:05"
+      },
+      {
+        "account_id": "acc_00000006",
+        "username": "user_6",
+        "healthy": false,
+        "response_time": 0.0,
+        "status": "active",
+        "health_score": 0.5,
+        "daily_usage": "190/200",
+        "timestamp": "2026-10-08T10:30:06"
+      }
+    ]
+  },
+  "proxies": {
+    "total": 3,
+    "healthy": 2,
+    "unhealthy": 1,
+    "health_rate": 0.667,
+    "avg_latency_ms": 450,
+    "details": [
+      {
+        "proxy_id": "proxy_00000000",
+        "region": "US",
+        "healthy": true,
+        "latency": 0.45,
+        "latency_ms": 450,
+        "status": "active",
+        "health_score": 1.0,
+        "bound_accounts": 3,
+        "timestamp": "2026-10-08T10:30:00"
+      },
+      {
+        "proxy_id": "proxy_00000001",
+        "region": "US",
+        "healthy": true,
+        "latency": 0.52,
+        "latency_ms": 520,
+        "status": "active",
+        "health_score": 1.0,
+        "bound_accounts": 3,
+        "timestamp": "2026-10-08T10:30:01"
+      },
+      {
+        "proxy_id": "proxy_00000002",
+        "region": "EU",
+        "healthy": false,
+        "latency": 5.5,
+        "latency_ms": 5500,
+        "status": "active",
+        "health_score": 0.8,
+        "bound_accounts": 0,
+        "timestamp": "2026-10-08T10:30:02"
+      }
+    ]
+  },
+  "check_duration": 2.34,
+  "timestamp": "2026-10-08T10:30:00"
+}

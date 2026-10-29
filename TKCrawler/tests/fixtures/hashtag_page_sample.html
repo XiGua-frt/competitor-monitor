@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>#tiktokmademebuyit - TikTok</title>
+  <!--
+    Fixture built to match the VERIFIED TikTok challenge data structure
+    (calibrated by Agent P's live signed-API probe, 2026-10-07: the tag
+    name field is `challenge.title`, NOT `challenge.challengeName` --
+    evidence docs/probe/20261007T154904Z_api_challenge_detail_body.json
+    and tests/fixtures/hashtag_api_probe_webdev_detail.json). The
+    UNIVERSAL_DATA wrapper itself remains a logic-test vehicle only: the
+    real guest SSR tag page carries NO challenge data (Agent O probe).
+    Reference tag: #tiktokmademebuyit (Agent G task card acceptance).
+  -->
+  <script id="__UNIVERSAL_DATA_FOR_REHYDRATION__" type="application/json">
+  {
+    "__DEFAULT_SCOPE__": {
+      "webapp.challenge-detail": {
+        "challengeInfo": {
+          "challenge": {
+            "id": "1666298462899203",
+            "title": "tiktokmademebuyit",
+            "desc": "TikTok made me buy it!",
+            "stats": {
+              "viewCount": 617000000000,
+              "videoCount": 8300000
+            }
+          },
+          "itemList": [
+            {"video": {"id": "7301111222333444556", "desc": "must have"}},
+            {"video": {"id": "7302222333444555667", "desc": "so satisfying"}},
+            {"video": {"itemStruct": {"id": "7303333444555666778"}}},
+            {"id": "7304444555666777889"},
+            {"video": {"desc": "no id here"}}
+          ]
+        }
+      }
+    }
+  }
+  </script>
+</head>
+<body>
+  <div data-e2e="challenge-item">
+    <h1 data-e2e="challenge-title">#tiktokmademebuyit</h1>
+    <strong data-e2e="challenge-views-count">617B</strong>
+  </div>
+</body>
+</html>

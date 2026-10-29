@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!-- 最小化搜索结果页 fixture：结构基于 Amazon 公开搜索页常见标记
+     （div[data-asin] / data-component-type="sp-sponsored-result" /
+     a-price .a-offscreen / .a-icon-alt 星级 / aria-label 评分数），
+     非真实抓取样本，待实测校准。 -->
+<html lang="en-us"><body>
+<div class="s-main-slot s-result-list-ssearch-results">
+
+  <div class="s-result-item" data-asin="B0AAAAAAAA" data-component-type="s-search-result">
+    <h2 class="a-size-base-plus a-spacing-none"><a class="a-link-normal" href="/dp/B0AAAAAAAA"><span>Natural Result One Organic Cotton Tee</span></a></h2>
+    <div class="a-row a-size-small"><span class="a-icon-alt">4.5 out of 5 stars</span><a class="a-link-normal" aria-label="1,024 ratings"><span class="a-size-base s-underline-text">1,024</span></a></div>
+    <div class="a-row"><span class="a-price" data-a-size="xl"><span class="a-offscreen">$19.99</span><span aria-hidden="true"><span class="a-price-symbol">$</span><span class="a-price-whole">19<span class="a-price-decimal">.</span></span><span class="a-price-fraction">99</span></span></span></div>
+  </div>
+
+  <div class="s-result-item" data-asin="B0BBBBBBBB" data-component-type="s-search-result">
+    <div data-component-type="sp-sponsored-result"><span>Sponsored</span></div>
+    <h2 class="a-size-base-plus a-spacing-none"><a class="a-link-normal" href="/dp/B0BBBBBBBB"><span>Sponsored Ad Result Two Custom Shirt</span></a></h2>
+    <div class="a-row a-size-small"><span class="a-icon-alt">4.0 out of 5 stars</span><a class="a-link-normal" aria-label="58 ratings"><span class="a-size-base s-underline-text">58</span></a></div>
+    <div class="a-row"><span class="a-price" data-a-size="xl"><span class="a-offscreen">$24.50</span><span aria-hidden="true"><span class="a-price-symbol">$</span><span class="a-price-whole">24<span class="a-price-decimal">.</span></span><span class="a-price-fraction">50</span></span></span></div>
+  </div>
+
+  <div class="s-result-item" data-asin="B0CCCCCCCC" data-component-type="s-search-result">
+    <h2 class="a-size-base-plus a-spacing-none"><a class="a-link-normal" href="/dp/B0CCCCCCCC"><span>Natural Result Three Pet Portrait Mug</span></a></h2>
+    <div class="a-row"><span class="a-price" data-a-size="l"><span class="a-offscreen">$13.25</span></span></div>
+  </div>
+
+  <!-- 无 ASIN 的容器不应产出条目 -->
+  <div class="s-result-item" data-asin="">
+    <span>placeholder card</span>
+  </div>
+
+</div>
+</body></html>

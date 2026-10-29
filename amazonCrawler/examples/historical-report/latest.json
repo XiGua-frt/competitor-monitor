@@ -1,0 +1,540 @@
+[
+  {
+    "author_id": null,
+    "collection_conditions": {
+      "comparison_ready": false,
+      "expected": {
+        "currency": "USD",
+        "delivery_postcode": "10001",
+        "language": "en-US",
+        "marketplace": "www.amazon.com",
+        "price_scope": "displayed_product_price_not_final_customized_order",
+        "variant_policy": "record_selected_then_fix_per_product"
+      },
+      "expected_variant": null,
+      "observed": {
+        "asin": "B0DLQ8MVF7",
+        "color": "Black",
+        "currency_preference": "USD",
+        "delivery_location": "New York 10001‌",
+        "displayed_currency": "USD",
+        "fit_type": "Men",
+        "language": "en-us",
+        "marketplace": "www.amazon.com",
+        "page_url": "https://www.amazon.com/dp/B0DLQ8MVF7",
+        "size": "Small",
+        "size_option_asin": "B0752XJYNL",
+        "variant_evidence": {
+          "color": {
+            "associated_identity": "MC_Custom_1##B0752XJYNL",
+            "binding": "unverified",
+            "source": "embedded_selected_dimension",
+            "value": "Black"
+          },
+          "fit_type": {
+            "associated_identity": "MC_Custom_1##B0752XJYNL",
+            "binding": "unverified",
+            "source": "embedded_selected_dimension",
+            "value": "Men"
+          },
+          "size": {
+            "associated_identity": "MC_Custom_1##B0752XJYNL",
+            "binding": "unverified",
+            "source": "embedded_selected_dimension",
+            "value": "Small"
+          }
+        }
+      },
+      "reasons": [
+        "variant_binding_unverified"
+      ],
+      "region_verified": true,
+      "requested_asin": "B0DLQ8MVF7",
+      "status": "unconfirmed",
+      "variant_status": "not_fixed"
+    },
+    "commerce": {
+      "availability_text": "In Stock",
+      "best_sellers_rank_raw": "#729,415 in Clothing, Shoes & Jewelry ( See Top 100 in Clothing, Shoes & Jewelry ) #20,009 in Boys' Novelty T-Shirts #20,326 in Girls' Novelty T-Shirts #31,092 in Women's Novelty T-Shirts",
+      "best_sellers_ranks": [
+        {
+          "category": "Clothing, Shoes & Jewelry",
+          "rank": 729415
+        },
+        {
+          "category": "Boys' Novelty T-Shirts",
+          "rank": 20009
+        },
+        {
+          "category": "Girls' Novelty T-Shirts",
+          "rank": 20326
+        },
+        {
+          "category": "Women's Novelty T-Shirts",
+          "rank": 31092
+        }
+      ],
+      "brand": "Modify by Amazon Merch on Demand",
+      "currency": "USD",
+      "date_first_available": "2024-11-01",
+      "date_first_available_raw": "November 1, 2024",
+      "price": 14.99,
+      "rating": 4.6,
+      "rating_count": 104,
+      "recent_purchase_display": null,
+      "recent_purchase_text": null,
+      "seller_name": null,
+      "written_review_count": null
+    },
+    "cover_url": "https://m.media-amazon.com/images/I/B1pppR4gVKL._CLa%7C2140%2C2000%7C9161ur4TZEL.png%7C0%2C0%2C2140%2C2000%2B0.0%2C0.0%2C2140.0%2C2000.0_AC_SX342_SY445_QL70_FMwebp_.png",
+    "description": "Customize by uploading a photo or image of your dog, cat, or Pet. Personalize further by adding your pet's name name and birth year.\nCreate your own dog, cat, or pet photo t-shirt. Perfect for pet parents, kids, or a gift.\nClassic, casual tee with a ribbed crewneck, straight hem, durable-double needle stitching, and short sleeves for everyday comfort.\nAvailable in an inclusive range of sizes for the perfect fit, including fits for men, women, toddlers, kids, big and tall, and plus size. For classic styling in all-gender, unisex sizes, consider the Men's fit type.\nPrinted in the USA using Direct-to-Garment (DTG) printing technology.",
+    "evidence": {
+      "currency_preference": "USD",
+      "delivery_location": "New York 10001‌",
+      "description_source": "feature_bullets",
+      "import_source": "..\\test\\amazon\\amzpy\\us-preferences-fixed\\B0DLQ8MVF7.html",
+      "media_urls_complete": false,
+      "price_missing_reason": null,
+      "price_raw": "$14.99",
+      "price_scope": "displayed_product_price_not_final_customized_order",
+      "price_source": "main_product_price_container",
+      "rating_count_raw": "104 global ratings",
+      "us_preferences_verified": true
+    },
+    "external_id": "B0DLQ8MVF7",
+    "fetched_at": "2026-10-08T10:20:04.796484+00:00",
+    "hashtags": [],
+    "media_urls": [
+      "https://m.media-amazon.com/images/I/B1pppR4gVKL._CLa%7C2140%2C2000%7C9161ur4TZEL.png%7C0%2C0%2C2140%2C2000%2B0.0%2C0.0%2C2140.0%2C2000.0_AC_SX342_SY445_QL70_FMwebp_.png"
+    ],
+    "platform": "amazon",
+    "published_at": null,
+    "relevance": {
+      "evidence": [
+        {
+          "excerpt": "stom Best Friend Dog, Cat, or Pet Photo T-Shirt for Men, Women and Kids - Customize with Your Pet's Name an",
+          "matched_text": "T-Shirt",
+          "signal": "apparel",
+          "source": "title"
+        },
+        {
+          "excerpt": "\nCreate your own dog, cat, or pet photo t-shirt. Perfect for pet parents, kids, or a gift.\nClassic, casual ",
+          "matched_text": "t-shirt",
+          "signal": "apparel",
+          "source": "description"
+        },
+        {
+          "excerpt": "Custom Best Friend Dog, Cat, or Pet Photo T-Shirt for Men, Women a",
+          "matched_text": "Custom",
+          "signal": "customization",
+          "source": "title"
+        },
+        {
+          "excerpt": "Customize by uploading a photo or image of your dog, cat, or Pet. Per",
+          "matched_text": "Customize",
+          "signal": "customization",
+          "source": "description"
+        },
+        {
+          "excerpt": "Custom Best Friend Dog, Cat, or Pet Photo T-Shirt for Men, Women and Kids - Customize with Your Pet's Name and Photo",
+          "matched_text": "Dog, Cat, or Pet Photo T-Shirt for Men, Women and Kids - Customize with Your Pet's Name and Photo",
+          "signal": "pet_portrait",
+          "source": "title"
+        },
+        {
+          "excerpt": "me name and birth year.\nCreate your own dog, cat, or pet photo t-shirt. Perfect for pet parents, kids, or a gift.\nClassic,",
+          "matched_text": "dog, cat, or pet photo",
+          "signal": "pet_portrait",
+          "source": "description"
+        }
+      ],
+      "method": "title_and_product_description_rules_not_image_or_order_validation",
+      "product_scope": "pet_specific",
+      "reasons": [
+        "apparel_customization_and_pet_portrait_evidence"
+      ],
+      "rule_version": "pet-apparel-v1",
+      "stage": "detail",
+      "status": "related",
+      "target": "human-worn custom pet portrait apparel"
+    },
+    "search": {
+      "is_sponsored": null,
+      "keyword": "custom pet portrait shirt",
+      "position_scope": "order_returned_by_amzpy_not_verified_page_rank",
+      "selected_result_position": 1
+    },
+    "source_url": "https://www.amazon.com/dp/B0DLQ8MVF7",
+    "stats": {
+      "collections": null,
+      "comments": null,
+      "likes": null,
+      "shares": null,
+      "views": null
+    },
+    "target_status_code": "partial",
+    "title": "Custom Best Friend Dog, Cat, or Pet Photo T-Shirt for Men, Women and Kids - Customize with Your Pet's Name and Photo",
+    "storage": {
+      "profile": "ae81bb40124994cceb936c7e",
+      "snapshot_id": "f1dd2778b0745175a58b6586ea1b3884",
+      "last_valid_price": {
+        "price": 14.99,
+        "currency": "USD",
+        "observed_at": "2026-10-08T10:20:04.796484+00:00"
+      }
+    }
+  },
+  {
+    "author_id": "A358NHPDS1ZMEA",
+    "collection_conditions": {
+      "comparison_ready": false,
+      "expected": {
+        "currency": "USD",
+        "delivery_postcode": "10001",
+        "language": "en-US",
+        "marketplace": "www.amazon.com",
+        "price_scope": "displayed_product_price_not_final_customized_order",
+        "variant_policy": "record_selected_then_fix_per_product"
+      },
+      "expected_variant": null,
+      "observed": {
+        "asin": "B0GWVTMR4Q",
+        "color": "Light Pink",
+        "currency_preference": "USD",
+        "delivery_location": "New York 10001‌",
+        "displayed_currency": "USD",
+        "fit_type": null,
+        "language": "en-us",
+        "marketplace": "www.amazon.com",
+        "page_url": "https://www.amazon.com/dp/B0GWVTMR4Q",
+        "size": null,
+        "variant_evidence": {
+          "color": {
+            "associated_identity": "B0GWVTMR4Q",
+            "binding": "matched",
+            "source": "embedded_selected_dimension",
+            "value": "Light Pink"
+          },
+          "fit_type": {
+            "reason": "selected_value_not_found",
+            "source": null,
+            "value": null
+          },
+          "size": {
+            "reason": "selected_value_not_found",
+            "source": null,
+            "value": null
+          }
+        }
+      },
+      "reasons": [],
+      "region_verified": true,
+      "requested_asin": "B0GWVTMR4Q",
+      "status": "matched",
+      "variant_status": "not_fixed"
+    },
+    "commerce": {
+      "availability_text": "In stock Usually ships within 3 to 4 days.",
+      "best_sellers_rank_raw": "#56,481 in Handmade Products ( See Top 100 in Handmade Products ) #9,425 in Handmade Clothing & Accessories #419,725 in Women's Novelty T-Shirts #458,427 in Men's Novelty T-Shirts",
+      "best_sellers_ranks": [
+        {
+          "category": "Handmade Products",
+          "rank": 56481
+        },
+        {
+          "category": "Handmade Clothing & Accessories",
+          "rank": 9425
+        },
+        {
+          "category": "Women's Novelty T-Shirts",
+          "rank": 419725
+        },
+        {
+          "category": "Men's Novelty T-Shirts",
+          "rank": 458427
+        }
+      ],
+      "brand": "EMBROLY",
+      "currency": "USD",
+      "date_first_available": "2026-04-13",
+      "date_first_available_raw": "April 13, 2026",
+      "price": 12.95,
+      "rating": 5.0,
+      "rating_count": 5,
+      "recent_purchase_display": null,
+      "recent_purchase_text": null,
+      "seller_name": "EmbrolyStore",
+      "written_review_count": null
+    },
+    "cover_url": "https://m.media-amazon.com/images/I/71FlRvKPwBL._AC_SX342_SY445_QL70_FMwebp_.jpg",
+    "description": "Because Some Bonds Deserve to Be Worn, Not Just Felt – Upload a photo of your dog or cat, tell us their name, and we turn that love into something you can put on every morning. Their portrait is embroidered in outline on your chest and their name runs along your sleeve, so no matter where you go that day, you are carrying the one who always makes coming home the best part\nCrafted to Last as Long as the Love Behind It – Every portrait is stitched on Melco professional embroidery machines using Madeira thread, chosen for its rich color retention, smooth finish and ability to hold fine detail through years of daily wear. The raised stitching is woven directly into your t-shirt fabric, not printed on top of it, so it never cracks, never fades and never loses the sharpness that makes it look like your pet and no one else's\nFor the Birthday or Christmas When You Finally Get the Gift Right – You have seen someone tear up over a gift exactly once in your life, and it was not over something that came in standard packaging. A custom embroidered t-shirt with their own dog or cat on the chest and their pet's name on the sleeve is the kind of gift that makes someone hold it up, look at it quietly for a second, and then immediately want to put it on\nMade for the Person Whose Pet Is the First Thing They Talk About and the Last Thing They Think About – If you are someone who has rearranged your schedule for your dog, who refers to your cat in conversation as though everyone already knows them, and who would wear their face on a shirt to a dinner party without any apology, this t-shirt already belongs in your wardrobe. It was made with exactly you in mind\nSoft Enough to Become Your Favorite Shirt Without Trying – Your t-shirt is made from 100% cotton, naturally breathable, lightweight and gentle against your skin in a way that synthetic blends never quite manage. It starts soft and gets softer with every wash, slowly becoming the shirt that feels most like home, the one you pull out without thinking because everything else suddenly feels like the wrong choice",
+    "evidence": {
+      "currency_preference": "USD",
+      "delivery_location": "New York 10001‌",
+      "description_source": "feature_bullets",
+      "import_source": "..\\test\\amazon\\amzpy\\us-preferences-fixed\\B0GWVTMR4Q.html",
+      "media_urls_complete": false,
+      "price_missing_reason": null,
+      "price_raw": "$12.95",
+      "price_scope": "displayed_product_price_not_final_customized_order",
+      "price_source": "main_product_price_container",
+      "rating_count_raw": "5 global ratings",
+      "us_preferences_verified": true
+    },
+    "external_id": "B0GWVTMR4Q",
+    "fetched_at": "2026-10-08T10:20:22.378657+00:00",
+    "hashtags": [],
+    "media_urls": [
+      "https://m.media-amazon.com/images/I/71FlRvKPwBL._AC_SX342_SY445_QL70_FMwebp_.jpg"
+    ],
+    "platform": "amazon",
+    "published_at": null,
+    "relevance": {
+      "evidence": [
+        {
+          "excerpt": "Custom Embroidered Dog Mom T-Shirt Portrait Outline Photo",
+          "matched_text": "T-Shirt",
+          "signal": "apparel",
+          "source": "title"
+        },
+        {
+          "excerpt": "d stitching is woven directly into your t-shirt fabric, not printed on top of it, so it never cracks, never",
+          "matched_text": "t-shirt",
+          "signal": "apparel",
+          "source": "description"
+        },
+        {
+          "excerpt": "Custom Embroidered Dog Mom T-Shirt Portrait Outline Photo",
+          "matched_text": "Custom",
+          "signal": "customization",
+          "source": "title"
+        },
+        {
+          "excerpt": "hing that came in standard packaging. A custom embroidered t-shirt with their own dog or cat on the chest ",
+          "matched_text": "custom",
+          "signal": "customization",
+          "source": "description"
+        },
+        {
+          "excerpt": "Custom Embroidered Dog Mom T-Shirt Portrait Outline Photo",
+          "matched_text": "Dog Mom T-Shirt Portrait Outline Photo",
+          "signal": "pet_portrait",
+          "source": "title"
+        },
+        {
+          "excerpt": "hedule for your dog, who refers to your cat in conversation as though everyone already knows them, and who would wear their face on a shirt to a dinner party without any apology, this t-sh",
+          "matched_text": "cat in conversation as though everyone already knows them, and who would wear their face",
+          "signal": "pet_portrait",
+          "source": "description"
+        }
+      ],
+      "method": "title_and_product_description_rules_not_image_or_order_validation",
+      "product_scope": "pet_specific",
+      "reasons": [
+        "apparel_customization_and_pet_portrait_evidence"
+      ],
+      "rule_version": "pet-apparel-v1",
+      "stage": "detail",
+      "status": "related",
+      "target": "human-worn custom pet portrait apparel"
+    },
+    "search": {
+      "is_sponsored": null,
+      "keyword": "custom pet portrait shirt",
+      "position_scope": "order_returned_by_amzpy_not_verified_page_rank",
+      "selected_result_position": 2
+    },
+    "source_url": "https://www.amazon.com/dp/B0GWVTMR4Q",
+    "stats": {
+      "collections": null,
+      "comments": null,
+      "likes": null,
+      "shares": null,
+      "views": null
+    },
+    "target_status_code": "partial",
+    "title": "Custom Embroidered Dog Mom T-Shirt Portrait Outline Photo",
+    "storage": {
+      "profile": "ae81bb40124994cceb936c7e",
+      "snapshot_id": "c6a2816e5ab659c29ce4e456a4457eb9",
+      "last_valid_price": {
+        "price": 12.95,
+        "currency": "USD",
+        "observed_at": "2026-10-08T10:20:22.378657+00:00"
+      }
+    }
+  },
+  {
+    "author_id": "A21T9VMSLBQ6TP",
+    "collection_conditions": {
+      "comparison_ready": false,
+      "expected": {
+        "currency": "USD",
+        "delivery_postcode": "10001",
+        "language": "en-US",
+        "marketplace": "www.amazon.com",
+        "price_scope": "displayed_product_price_not_final_customized_order",
+        "variant_policy": "record_selected_then_fix_per_product"
+      },
+      "expected_variant": null,
+      "observed": {
+        "asin": "B0H22J6F1B",
+        "color": null,
+        "currency_preference": "USD",
+        "delivery_location": "New York 10001‌",
+        "displayed_currency": "USD",
+        "fit_type": null,
+        "language": "en-us",
+        "marketplace": "www.amazon.com",
+        "page_url": "https://www.amazon.com/dp/B0H22J6F1B",
+        "size": null,
+        "variant_evidence": {
+          "color": {
+            "reason": "selected_value_not_found",
+            "source": null,
+            "value": null
+          },
+          "fit_type": {
+            "reason": "selected_value_not_found",
+            "source": null,
+            "value": null
+          },
+          "size": {
+            "reason": "selected_value_not_found",
+            "source": null,
+            "value": null
+          }
+        }
+      },
+      "reasons": [],
+      "region_verified": true,
+      "requested_asin": "B0H22J6F1B",
+      "status": "matched",
+      "variant_status": "not_fixed"
+    },
+    "commerce": {
+      "availability_text": "In Stock",
+      "best_sellers_rank_raw": "#1,318,004 in Clothing, Shoes & Jewelry ( See Top 100 in Clothing, Shoes & Jewelry ) #124,300 in Women's Novelty T-Shirts #136,627 in Men's Novelty T-Shirts #393,951 in Men's Fashion",
+      "best_sellers_ranks": [
+        {
+          "category": "Clothing, Shoes & Jewelry",
+          "rank": 1318004
+        },
+        {
+          "category": "Women's Novelty T-Shirts",
+          "rank": 124300
+        },
+        {
+          "category": "Men's Novelty T-Shirts",
+          "rank": 136627
+        },
+        {
+          "category": "Men's Fashion",
+          "rank": 393951
+        }
+      ],
+      "brand": "Just Customized",
+      "currency": "USD",
+      "date_first_available": "2026-05-16",
+      "date_first_available_raw": "May 16, 2026",
+      "price": 24.99,
+      "rating": 5.0,
+      "rating_count": 2,
+      "recent_purchase_display": null,
+      "recent_purchase_text": null,
+      "seller_name": "Just Customized",
+      "written_review_count": null
+    },
+    "cover_url": "https://m.media-amazon.com/images/I/711nSQfzk3L._AC_SX342_SY445_QL70_FMwebp_.jpg",
+    "description": "CUSTOM T SHIRTS YOU DESIGN YOURSELF: Upload a photo, type a name, paste a company logo or write out a line that means something, and we print it across the front, the back or both sides in full colour. The customization window sits on this page above the buy button, so the layout is settled before the order goes through. There is no minimum order and no setup charge, which means one shirt costs the same per piece as a run of forty for a team, a family or an office. Artwork uploads in seconds.\nRING SPUN COTTON TEE, SMALL TO 4XL: The body is ring spun cotton with a set in crew neck, short sleeves and a regular unisex cut that runs true to the size chart on this page. Side seams are clean and the shoulders are taped so the shape holds after washing. Seven sizes cover Small through 4X-Large and the same cut is worn by men and women, so a team order does not need two separate style numbers. Check the chart before ordering rather than guessing. Machine wash cold and hang to dry.\nFRONT AND BACK PRINTING IN FULL COLOUR: The design is pressed into the fabric rather than laid on top as a patch, so the print moves with the shirt and does not crack across the chest after a wash cycle. Put one image on the front and a second on the back, or run a name list down the back of a whole group order. Turn the shirt inside out and wash it cold to keep the colour where it started. Line drying keeps the print sharpest. Bulk group orders ship in one box with a packing list inside.\nBIRTHDAYS, REUNIONS, WORK TEAMS AND CHRISTMAS: Print a family photograph for a reunion, a pet portrait for a partner, a class picture for a teacher at the end of term, or a logo run for a small business counter. Couples order matching pairs with a date printed on each. Offices order a set with every name on its own shirt. Bachelor and bachelorette parties order in bulk and pay the same per piece as a single order. Add a name so nobody mixes them up. Order early for Christmas and add a name.\nPRINTED IN THE USA AND CHECKED BY HAND: Every shirt is printed and packed in our own facility and held against your uploaded file under daylight lamps before it is folded and bagged. Send artwork at 300 dpi where you can and keep faces clear of the outer edge of the print area for the cleanest crop. If the print does not match the artwork you sent, or the shirt arrives damaged, please use Amazon Buyer-Seller Messaging and we will make it right. Tracking posts to your order. Colours stay true.",
+    "evidence": {
+      "currency_preference": "USD",
+      "delivery_location": "New York 10001‌",
+      "description_source": "feature_bullets",
+      "import_source": "..\\test\\amazon\\amzpy\\us-preferences-fixed\\B0H22J6F1B.html",
+      "media_urls_complete": false,
+      "price_missing_reason": null,
+      "price_raw": "$24.99",
+      "price_scope": "displayed_product_price_not_final_customized_order",
+      "price_source": "main_product_price_container",
+      "rating_count_raw": "2 global ratings",
+      "us_preferences_verified": true
+    },
+    "external_id": "B0H22J6F1B",
+    "fetched_at": "2026-10-08T10:20:40.083452+00:00",
+    "hashtags": [],
+    "media_urls": [
+      "https://m.media-amazon.com/images/I/711nSQfzk3L._AC_SX342_SY445_QL70_FMwebp_.jpg"
+    ],
+    "platform": "amazon",
+    "published_at": null,
+    "relevance": {
+      "evidence": [
+        {
+          "excerpt": "Custom T Shirts Men Women Personalized Photo Text Logo Design Your Own Tee",
+          "matched_text": "T Shirts",
+          "signal": "apparel",
+          "source": "title"
+        },
+        {
+          "excerpt": "CUSTOM T SHIRTS YOU DESIGN YOURSELF: Upload a photo, type a name, paste a c",
+          "matched_text": "T SHIRTS",
+          "signal": "apparel",
+          "source": "description"
+        },
+        {
+          "excerpt": "Custom T Shirts Men Women Personalized Photo Text Logo Design Your",
+          "matched_text": "Custom",
+          "signal": "customization",
+          "source": "title"
+        },
+        {
+          "excerpt": "CUSTOM T SHIRTS YOU DESIGN YOURSELF: Upload a photo, type a name, ",
+          "matched_text": "CUSTOM",
+          "signal": "customization",
+          "source": "description"
+        },
+        {
+          "excerpt": "nt a family photograph for a reunion, a pet portrait for a partner, a class picture for a teacher at the end of term, or a logo run for a small",
+          "matched_text": "pet portrait for a partner, a class picture",
+          "signal": "pet_portrait",
+          "source": "description"
+        }
+      ],
+      "method": "title_and_product_description_rules_not_image_or_order_validation",
+      "product_scope": "general_custom_photo_apparel",
+      "reasons": [
+        "apparel_customization_and_pet_portrait_evidence"
+      ],
+      "rule_version": "pet-apparel-v1",
+      "stage": "detail",
+      "status": "related",
+      "target": "human-worn custom pet portrait apparel"
+    },
+    "search": {
+      "is_sponsored": null,
+      "keyword": "custom pet portrait shirt",
+      "position_scope": "order_returned_by_amzpy_not_verified_page_rank",
+      "selected_result_position": 3
+    },
+    "source_url": "https://www.amazon.com/dp/B0H22J6F1B",
+    "stats": {
+      "collections": null,
+      "comments": null,
+      "likes": null,
+      "shares": null,
+      "views": null
+    },
+    "target_status_code": "partial",
+    "title": "Custom T Shirts Men Women Personalized Photo Text Logo Design Your Own Tee",
+    "storage": {
+      "profile": "ae81bb40124994cceb936c7e",
+      "snapshot_id": "fd37097bf8aa5fc591401ea72941905e",
+      "last_valid_price": {
+        "price": 24.99,
+        "currency": "USD",
+        "observed_at": "2026-10-08T10:20:40.083452+00:00"
+      }
+    }
+  }
+]

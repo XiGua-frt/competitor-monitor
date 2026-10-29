@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-labelledby="title desc">
+  <title id="title">TikTok APIs</title>
+  <desc id="desc">A neon code gateway frames a music note with a play-button center and a connected API pulse.</desc>
+  <defs>
+    <linearGradient id="night" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#151d31"/>
+      <stop offset="0.52" stop-color="#0c1120"/>
+      <stop offset="1" stop-color="#070a13"/>
+    </linearGradient>
+    <radialGradient id="halo">
+      <stop offset="0" stop-color="#354368" stop-opacity="0.75"/>
+      <stop offset="1" stop-color="#10182a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff49a"/>
+      <stop offset="1" stop-color="#ffbd31"/>
+    </linearGradient>
+    <g id="note">
+      <path d="M302 116c37 26 82 37 129 26v72c-37 12-70 5-92-7v133h-37V116Z"/>
+      <ellipse cx="267" cy="354" rx="70" ry="48" transform="rotate(-18 267 354)"/>
+    </g>
+  </defs>
+
+  <rect x="18" y="18" width="604" height="604" rx="138" fill="url(#night)"/>
+  <rect x="20" y="20" width="600" height="600" rx="136" fill="none" stroke="#34405c" stroke-width="3"/>
+  <circle cx="321" cy="273" r="272" fill="url(#halo)"/>
+
+  <!-- Tiny terminal traces make the mark feel like an API endpoint, not a copied app icon. -->
+  <path d="M63 141h52l27-27h46M454 114h45l25 25h53M66 431h58l26 26h38M451 457h37l29-29h59" fill="none" stroke="#556884" stroke-opacity="0.56" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="190" cy="114" r="8" fill="#25f4ee"/>
+  <circle cx="450" cy="114" r="8" fill="#fe4265"/>
+  <circle cx="188" cy="457" r="8" fill="#25f4ee"/>
+  <circle cx="451" cy="457" r="8" fill="#fe4265"/>
+
+  <!-- The oversized brackets are the gateway; the note's head doubles as a play key. -->
+  <path d="m192 171-78 96 78 96" fill="none" stroke="#25f4ee" stroke-width="33" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m448 171 78 96-78 96" fill="none" stroke="#fe4265" stroke-width="33" stroke-linecap="round" stroke-linejoin="round"/>
+  <use href="#note" transform="translate(-11 -8)" fill="#25f4ee"/>
+  <use href="#note" transform="translate(11 7)" fill="#fe4265"/>
+  <use href="#note" fill="#f8fbff"/>
+  <path d="m258 335 36 20-36 21z" fill="#18243b"/>
+
+  <path d="M210 454h54l24 22h64l24-22h54" fill="none" stroke="url(#gold)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="210" cy="454" r="7" fill="#ffe47a"/>
+  <circle cx="430" cy="454" r="7" fill="#ffe47a"/>
+  <text x="320" y="540" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="57" font-weight="800" letter-spacing="2" fill="#f8fbff">TikTok</text>
+  <text x="320" y="584" text-anchor="middle" font-family="Consolas, Monaco, monospace" font-size="31" font-weight="700" letter-spacing="5" fill="url(#gold)">&lt;APIs&gt;</text>
+</svg>

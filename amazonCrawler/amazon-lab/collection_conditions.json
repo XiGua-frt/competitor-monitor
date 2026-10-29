@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "marketplace": "www.amazon.com",
+  "country_code": "com",
+  "delivery_postcode": "10001",
+  "currency": "USD",
+  "language": "en-US",
+  "session_file": "../private/amazon-preferences.json",
+  "price_scope": "displayed_product_price_not_final_customized_order",
+  "variant_policy": "record_selected_then_fix_per_product",
+  "tracked_variants": {}
+}

@@ -1,0 +1,32 @@
+# 调度任务配置（Amazon 竞品监控）
+# interval 支持: 2d / 12h / 30m / 45s 或纯数字（秒）
+# priority: 数字越小优先级越高
+tasks:
+  - name: scrape_watchlist            # 清单内 ASIN 的 PDP 每日快照
+    type: periodic
+    interval: 1d
+    priority: 1
+    retry:
+      max_attempts: 3
+      backoff: exponential
+      base_delay: 60
+
+  - name: scrape_keyword_ranks        # 关键词排名快照
+    type: periodic
+    interval: 1d
+    priority: 2
+    payload:
+      keywords: null                  # 缺省读 src/scheduler/config/keywords.yaml
+    retry:
+      max_attempts: 3
+      backoff: exponential
+      base_delay: 60
+
+  - name: scrape_offers               # 跟卖/BuyBox 监控（高频清单可单独调）
+    type: periodic
+    interval: 1d
+    priority: 3
+    retry:
+      max_attempts: 2
+      backoff: exponential
+      base_delay: 120

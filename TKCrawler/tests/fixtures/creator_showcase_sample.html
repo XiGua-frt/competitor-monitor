@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>@homegadget_pro Showcase - TikTok</title>
+  <!--
+    Fixture for the showcase page (assumed URL
+    https://www.tiktok.com/@{unique_id}/showcase). Product IDs are extracted
+    from raw text via the showcase_page.product_id_regex — duplicates below
+    verify de-duplication. Unverified structure.
+  -->
+  <body>
+    <div data-e2e="showcase-list">
+      <a data-e2e="product-card" href="/shop/product/7301234567890123456">Product A</a>
+      <a data-e2e="product-card" href="/shop/product/7309876543210987654">Product B</a>
+      <a data-e2e="product-card" href="/shop/product/7301234567890123456">Product A (duplicate)</a>
+      <a data-e2e="product-card" href="https://shop.tiktok.com/view/product/7305554443332221110">Product C</a>
+    </div>
+    <script>window.__DATA__ = {"item": {"product_id": "7301234567890123456"}};</script>
+  </body>
+</html>
